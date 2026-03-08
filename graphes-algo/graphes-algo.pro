@@ -12,12 +12,14 @@ SOURCES += \
     arc.cpp \
     main.cpp \
     mainwindow.cpp \
-    sommet.cpp
+    sommet.cpp \
+    stationessence.cpp
 
 HEADERS += \
     arc.h \
     mainwindow.h \
-    sommet.h
+    sommet.h \
+    stationessence.h
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
