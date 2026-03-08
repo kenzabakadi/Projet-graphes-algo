@@ -1,0 +1,25 @@
+#include "sommet.h"
+
+Sommet::Sommet() : id{0}, donnees{""}
+{}
+
+Sommet::Sommet(int id, std::string donnees) {
+    this->id = id;
+    this->donnees = donnees;
+}
+
+void Sommet::attribuerId(int id) {
+    this->id = id;
+}
+
+void Sommet::attribuerDonnees(std::string donnees) {
+    this->donnees = donnees;
+}
+
+int Sommet::retournerId() {
+    return id;
+}
+
+std::string Sommet::retournerDonnees(){
+    return donnees;
+}
