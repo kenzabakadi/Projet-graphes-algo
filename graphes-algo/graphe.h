@@ -17,6 +17,8 @@ class Graphe {
         vector<Arc> arcs; // rajout d'un tableau d'arcs oublié dans le diagramme UML 
     public:
         Graphe(bool oriente);
+        Graphe(bool oriente, vector<int> fs, vector<int> aps);
+        Graphe(bool oriente, vector<vector<int>> matrice);
         void ajouterSommet(Sommet s);
         void supprimerSommet(Sommet s);
         void ajouterArc(Arc a);

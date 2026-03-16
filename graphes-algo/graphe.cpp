@@ -2,6 +2,23 @@
 
 Graphe::Graphe(bool oriente) : estOriente{oriente} {}
 
+Graphe::Graphe(bool oriente, vector<int> fs, vector<int> aps) : estOriente{oriente} {
+    if (aps.empty() || fs.empty() || aps[0] <= 0) {
+        throw std::invalid_argument("FS/APS invalide.");
+    }
+    this->fs = fs;
+    this->aps = aps;
+    fsApsVersMatrice();
+}
+
+Graphe::Graphe(bool oriente, vector<vector<int>> matrice) : estOriente{oriente} {
+    if (matrice.empty() || matrice[0].empty() || matrice[0].size() < 2) {
+        throw std::invalid_argument("Matrice invalide.");
+    }
+    this->matrice = matrice;
+    matriceVersFsAps();
+}
+
 void Graphe::ajouterSommet(Sommet s) {
     sommets.push_back(s);
 }
