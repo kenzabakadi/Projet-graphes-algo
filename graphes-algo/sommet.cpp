@@ -23,3 +23,7 @@ int Sommet::retournerId() {
 std::string Sommet::retournerDonnees(){
     return donnees;
 }
+
+bool Sommet::operator==(const Sommet& autre) const {
+    return id == autre.id;
+}

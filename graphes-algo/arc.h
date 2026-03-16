@@ -20,6 +20,8 @@ public:
     int retournerPoids();
     Sommet retournerSommetDepart();
     Sommet retournerSommetArrivee();
+
+    bool operator==(const Arc& autre) const;
 };
 
 #endif // ARC_H

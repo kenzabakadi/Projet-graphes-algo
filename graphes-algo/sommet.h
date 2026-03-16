@@ -17,6 +17,8 @@ public:
 
     int retournerId();
     std::string retournerDonnees();
+
+    bool operator==(const Sommet& autre) const;
 };
 
 #endif // SOMMET_H

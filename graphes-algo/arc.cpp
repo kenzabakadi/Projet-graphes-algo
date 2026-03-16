@@ -31,3 +31,7 @@ Sommet Arc::retournerSommetDepart() {
 Sommet Arc::retournerSommetArrivee() {
     return arrivee;
 }
+
+bool Arc::operator==(const Arc& autre) const {
+    return depart == autre.depart && arrivee == autre.arrivee && poids == autre.poids;
+}
