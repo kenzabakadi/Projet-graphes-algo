@@ -15,8 +15,8 @@ public:
     void attribuerId(int id);
     void attribuerDonnees(std::string donnees);
 
-    int retournerId();
-    std::string retournerDonnees();
+    int retournerId() const;
+    std::string retournerDonnees() const;
 
     bool operator==(const Sommet& autre) const;
 };

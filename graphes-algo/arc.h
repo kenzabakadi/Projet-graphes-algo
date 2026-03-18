@@ -17,9 +17,9 @@ public:
     void attribuerSommetDepart(Sommet depart);
     void attribuerSommetArrivee(Sommet arrivee);
 
-    int retournerPoids();
-    Sommet retournerSommetDepart();
-    Sommet retournerSommetArrivee();
+    int retournerPoids() const;
+    Sommet retournerSommetDepart() const;
+    Sommet retournerSommetArrivee() const;
 
     bool operator==(const Arc& autre) const;
 };

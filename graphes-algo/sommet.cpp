@@ -16,11 +16,11 @@ void Sommet::attribuerDonnees(std::string donnees) {
     this->donnees = donnees;
 }
 
-int Sommet::retournerId() {
+int Sommet::retournerId() const {
     return id;
 }
 
-std::string Sommet::retournerDonnees(){
+std::string Sommet::retournerDonnees() const{
     return donnees;
 }
 

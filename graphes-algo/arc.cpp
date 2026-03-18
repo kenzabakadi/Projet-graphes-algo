@@ -20,15 +20,15 @@ void Arc::attribuerSommetArrivee(Sommet arrivee) {
     this->arrivee = arrivee;
 }
 
-int Arc::retournerPoids() {
+int Arc::retournerPoids() const {
     return poids;
 }
 
-Sommet Arc::retournerSommetDepart() {
+Sommet Arc::retournerSommetDepart() const {
     return depart;
 }
 
-Sommet Arc::retournerSommetArrivee() {
+Sommet Arc::retournerSommetArrivee() const {
     return arrivee;
 }
 
