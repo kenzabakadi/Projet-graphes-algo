@@ -31,8 +31,47 @@ vector<vector<int>> Dijkstra::construireMatriceCout(int n) const {
     return c;
 }
 
+void Dijkstra::dijkstra(int sommet) {
+    int n = aps[0];
+    distances.assign(n+1, 100);
+    predecesseurs.assign(n+1, sommet);
+    vector<bool> marquage(n+1, true);
+
+    for (int i = 1; i <= n; ++i)
+        distances[i] = matriceCout[sommet][i];
+
+    marquage[sommet] = false;
+    int ind = n-1;
+
+    while (ind > 0) {
+        int min = 100;
+        int j = -1;
+        for (int i = 1; i <= n; ++i) {
+            if (marquage[i] && distances[i] < min) {
+                min = distances[i];
+                j = i;
+            }
+        }
+        if (j == -1) break;
+
+        marquage[j] = false;
+        --ind;
+
+        for (int k = aps[j]; fs[k] != 0; ++k) {
+            int t = fs[k];
+            int v = distances[j] + matriceCout[j][t];
+            if (v < distances[t]) {
+                distances[t] = v;
+                predecesseurs[t] = j;
+            }
+        }
+    }
+}
+
 void Dijkstra::executer() {
     verifierPoids();
-    matriceCout = construireMatriceCout();
-    dijkstra();
+    recupererFsAps(fs, aps);
+    int n = aps[0];
+    matriceCout = construireMatriceCout(n);
+    dijkstra(1); // exécuter depuis le sommet 1
 }

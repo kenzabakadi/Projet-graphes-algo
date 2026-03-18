@@ -8,13 +8,13 @@ class Dijkstra : public Algorithme {
         vector<int> fs;
         vector<int> aps;
         vector<int> distances;
-        vector<int> predecesseur;
+        vector<int> predecesseurs;
         vector<vector<int>> matriceCout;
 
         void verifierPoids() const;
         void recupererFsAps(vector<int>& fs, vector<int>& aps) const;
         vector<vector<int>> construireMatriceCout(int n) const;
-        void dijkstra(int s, const vector<int>& fs, const vector<int>& aps, const vector<vector<int>> c, vector<int>& d);
+        void dijkstra(int sommet);
     public: 
         Dijkstra(Graphe* graphe);
         void executer() override;
