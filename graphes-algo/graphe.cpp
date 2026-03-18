@@ -19,27 +19,31 @@ Graphe::Graphe(bool oriente, vector<vector<int>> matrice) : estOriente{oriente} 
     matriceVersFsAps();
 }
 
-void Graphe::ajouterSommet(Sommet s) {
+void Graphe::ajouterSommet(Sommet s) { // Il faut mettre à jour FS/APS et la matrice 
     sommets.push_back(s);
+    fsApsVersMatrice();
 }
 
-void Graphe::supprimerSommet(Sommet s) {
+void Graphe::supprimerSommet(Sommet s) { // Il faut mettre à jour FS/APS et la matrice 
     for (auto it = sommets.begin(); it != sommets.end(); ++it) { // Utilisation d'itérateur pour utiliser .erase()
-        if (*it == s) // Il faut surcharger l'opérateur d'égalité entre les sommets 
+        if (*it == s) { // Il faut surcharger l'opérateur d'égalité entre les sommets 
             sommets.erase(it);
             break;
+        }
     }
 }
 
-void Graphe::ajouterArc(Arc a) {
+void Graphe::ajouterArc(Arc a) { // Il faut mettre à jour FS/APS et la matrice 
     arcs.push_back(a);
+    fsApsVersMatrice;
 }
 
-void Graphe::supprimerArc(Arc a) {
+void Graphe::supprimerArc(Arc a) { // Il faut mettre à jour FS/APS et la matrice 
     for (auto it = arcs.begin(); it != arcs.end(); ++it) {
-        if (*it == a) // Il faut surcharger l'opérateur d'égalité entre les arcs
+        if (*it == a) { // Il faut surcharger l'opérateur d'égalité entre les arcs
             arcs.erase(it);
             break;
+        }
     }
 }
 
