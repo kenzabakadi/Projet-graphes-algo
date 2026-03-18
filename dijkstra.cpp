@@ -3,7 +3,7 @@
 Dijkstra::Dijkstra(Graphe* graphe) : Algorithme(graphe) {}
 
 void Dijkstra::verifierPoids() const {
-    for (const Arc& a : g->getArcs()) {
+    for (const Arc& a : g->retournerArcs()) {
         if (a.retournerPoids() < 0) {
             throw std::logic_error("Dijkstra impossible : poids négatif");
         }
@@ -22,7 +22,7 @@ vector<vector<int>> Dijkstra::construireMatriceCout(int n) const {
         c[i][i] = 0;
     }
 
-    for (const Arc& a : g->getArcs()) {
+    for (const Arc& a : g->retournerArcs()) {
         int u = a.retournerSommetDepart().retournerId();
         int v = a.retournerSommetArrivee().retournerId();
         c[u][v] = a.retournerPoids();
