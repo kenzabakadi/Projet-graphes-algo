@@ -7,6 +7,6 @@ class Dijkstra : public Algorithme {
     public: 
         Dijkstra(Graphe* graphe);
         void executer() override;
-}
+};
 
 #endif // DIJKSTRA_H
