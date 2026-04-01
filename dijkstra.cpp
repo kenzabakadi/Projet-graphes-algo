@@ -15,7 +15,7 @@ void Dijkstra::recupererFsAps(vector<int>& fs, vector<int>& aps) const {
 }
 
 vector<vector<int>> Dijkstra::construireMatriceCout(int n) const {
-    vector<vector<int>> c(n+1, vector<int>(n+1, INF)); // INF lorsqu'il n'y a pas d'arête entre i et j
+    vector<vector<int>> c(n+1, vector<int>(n+1, INFINI)); // infini lorsqu'il n'y a pas d'arête entre i et j
 
     for (int i = 1; i <= n; ++i) {
         c[i][i] = 0;
@@ -50,7 +50,7 @@ void Dijkstra::dijkstra(int sommet) {
     int ind = n-1; // nombre de sommets restants à traiter 
 
     while (ind > 0) {
-        int min = INF;
+        int min = INFINI;
         int j = -1;
 
         for (int i = 1; i <= n; ++i) { // recherche du sommet avec la plus petite distance
@@ -60,7 +60,7 @@ void Dijkstra::dijkstra(int sommet) {
             }
         }
 
-        if (min == INF) break;
+        if (min == INFINI) break;
 
         marquage[j] = false; // sommet j validé 
         --ind;
@@ -68,7 +68,7 @@ void Dijkstra::dijkstra(int sommet) {
         for (int k = aps[j]; fs[k] != 0; ++k) { // parcours des successeurs de j 
             int t = fs[k];
 
-            if (distances[j] != INF) {
+            if (distances[j] != INFINI) {
                 int v = distances[j] + matriceCout[j][t];
                 if (v < distances[t]) {
                     distances[t] = v;

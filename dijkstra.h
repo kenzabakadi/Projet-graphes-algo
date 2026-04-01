@@ -12,7 +12,7 @@ class Dijkstra : public Algorithme {
         vector<int> predecesseurs;
         vector<vector<int>> matriceCout;
 
-        const int INF = std::numeric_limits<int>::max(); // limite maximale d'entier
+        const int INFINI = std::numeric_limits<int>::max(); // limite maximale d'entier
 
         void verifierPoids() const;
         void recupererFsAps(vector<int>& fs, vector<int>& aps) const;
