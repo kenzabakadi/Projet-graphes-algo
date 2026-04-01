@@ -14,6 +14,7 @@ class Prufer : public Algorithme {
         Prufer(Graphe& graphe);
         void executer() override;
         std::vector<int> retournerCode() const;
+        //test
 };
 
 #endif // PRUFER_H
