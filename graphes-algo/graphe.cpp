@@ -27,7 +27,7 @@ void Graphe::supprimerSommet(const Sommet& s) {
 void Graphe::ajouterArc(const Arc& a) { 
     arcs.push_back(a);
 
-    // On ajoute aussi l'arc inverse si le graphe est non-orienté (facilite les algos)
+    // On ajoute aussi l'arc inverse si le graphe est non-orienté (facilite les algorithmes)
     if (!estOriente) {
         Arc inverse(
             a.retournerSommetArrivee(),
@@ -100,4 +100,43 @@ void Graphe::calculerFsAps(vector<int>& fs, vector<int>& aps) const {
 
     fs[0] = fs.size() - 1;
     aps[0] = n;
+}
+
+
+
+bool Graphe::estConnexe() const {
+    int n = sommets.size();
+    vector<bool> visite(n+1, false); // car les id des sommets commencent à 1 (pas de sommet 0)
+    int depart = sommets[0].retournerId();
+    dfs(depart, visite);
+
+    for (const Sommet& s : sommets) {
+        if (!visite[s.retournerId()]) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+void Graphe::dfs(int sommet, vector<bool>& visite) const {
+    visite[sommet] = true;
+
+    for (const Arc& a : arcs) {
+        if (a.retournerSommetDepart().retournerId() == sommet) {
+            int voisin = a.retournerSommetArrivee().retournerId();
+            if (!visite[voisin]) {
+                dfs(voisin, visite);
+            }
+        }
+    }
+}
+
+bool Graphe::estUnArbre() const {
+    if (estOriente || sommets.empty()) return false;
+
+    int n = sommets.size();
+    int m = arcs.size() / 2; // car le graphe est non-orienté donc deux arcs pour chaque arête
+
+    return estConnexe() && m == n-1;
 }

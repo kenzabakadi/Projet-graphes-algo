@@ -35,6 +35,11 @@ class Graphe {
         vector<vector<int>> retournerMatrice() const;
         void calculerFsAps(vector<int>& fs, vector<int>& aps) const;
 
+        // Permet de tester si le graphe est un arbre
+        void dfs(int sommet, vector<bool>& visite) const;
+        bool estConnexe() const;
+        bool estUnArbre() const;
+
         // Sauvergarder et charger un graphe n'est pas de la responsabilité du graphe, il faut changer ça
 };
 
