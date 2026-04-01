@@ -35,23 +35,25 @@ void Dijkstra::dijkstra(int sommet) {
 
     distances.resize(n+1);
     predecesseurs.resize(n+1);
-    vector<bool> marquage(n+1, true);
+    vector<bool> marquage(n+1, true); // true -> sommet non encore traité
 
     distances[0] = n;
     predecesseurs[0] = n;
-    marquage[sommet] = false;
-    int ind = n-1;
 
-    // Initialisation de distances et predecesseurs
+    // Initialisation de distances et predecesseurs depuis le sommet de départ 
     for (int i = 1; i <= n; ++i) {
         distances[i] = matriceCout[sommet][i];
         predecesseurs[i] = sommet;
     }
 
+    marquage[sommet] = false; // sommet de départ traité 
+    int ind = n-1; // nombre de sommets restants à traiter 
+
     while (ind > 0) {
         int min = INF;
         int j = -1;
-        for (int i = 1; i <= n; ++i) {
+
+        for (int i = 1; i <= n; ++i) { // recherche du sommet avec la plus petite distance
             if (marquage[i] && distances[i] < min) {
                 min = distances[i];
                 j = i;
@@ -60,10 +62,10 @@ void Dijkstra::dijkstra(int sommet) {
 
         if (min == INF) break;
 
-        marquage[j] = false;
+        marquage[j] = false; // sommet j validé 
         --ind;
 
-        for (int k = aps[j]; fs[k] != 0; ++k) {
+        for (int k = aps[j]; fs[k] != 0; ++k) { // parcours des successeurs de j 
             int t = fs[k];
 
             if (distances[j] != INF) {
