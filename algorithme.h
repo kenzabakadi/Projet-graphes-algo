@@ -5,9 +5,9 @@
 
 class Algorithme {
     protected: 
-        Graphe* g; // Pointeur de graphe pour éviter les copies lourdes
+        Graphe& g; // Référence de graphe pour éviter les copies lourdes
     public: 
-        Algorithme(Graphe* g);
+        Algorithme(Graphe& g);
         virtual ~Algorithme() = default;
         virtual void executer() = 0;
 };
