@@ -1,28 +1,39 @@
-#include "AfficheurFichier.h"
-#include <fstream>
+#include "AfficheurConsole.h"
 #include <iostream>
+#include "graphes-algo/graphe.h"
 
-// Implémentation du constructeur
-// On associe la variable "nom" à notre attribut privé "nomFichier"
-AfficheurFichier::AfficheurFichier(const std::string& nom) : nomFichier(nom) {
-}
+void AfficheurConsole::afficher(const Graphe& graphe)
+{
+    std::cout << "== RESEAU DES STATIONS ==" << std::endl;
 
+    // On récupère directement les listes
+    auto lesSommets = graphe.retournerSommets();
+    auto lesArcs = graphe.retournerArcs();
 
-void AfficheurFichier::afficher(const Graphe& graphe) {
-    std::ofstream fichier(nomFichier);
+    // On parcourt chaque station
+    for (const auto& sommet : lesSommets)
+    {
+        // Affichage de la station (le nom est dans "donnees")
+        std::cout << "\n[Station " << sommet.retournerId() << "] "
+            << sommet.retournerDonnees() << std::endl;
 
-    if (fichier.is_open()) {
-        fichier << "=== DONNEES DU GRAPHE ===" << std::endl;
+        bool aDesTrajets = false;
 
-        // C'est ici que l'on fera les boucles pour interroger 
-        // la classe Graphe de tes camarades.faut d'abord savoir comment est la saisie 
+        // On cherche les arcs qui partent de cette station
+        for (const auto& arc : lesArcs)
+        {
+            if (arc.retournerSommetDepart() == sommet)
+            {
+                std::cout << "  -> reliee a : Station "
+                    << arc.retournerSommetArrivee().retournerId()
+                    << " (Poids : " << arc.retournerPoids() << ")" << std::endl;
 
-        fichier << "Structure sauvegardee avec succes." << std::endl;
-
-        fichier.close(); 
-        std::cout << "Fichier '" << nomFichier << "' genere avec succes !" << std::endl;
-    }
-    else {
-        std::cout << "Erreur : Impossible de creer ou d'ouvrir le fichier." << std::endl;
+                aDesTrajets = true; // On a trouvé un trajet
+            }
+        }
+        if (!aDesTrajets)
+        {
+            std::cout << "  (Aucun trajet au depart de cette station)" << std::endl;
+        }
     }
 }
