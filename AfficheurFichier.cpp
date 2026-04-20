@@ -1,6 +1,5 @@
 #include "AfficheurConsole.h"
 #include <iostream>
-#include "graphes-algo/graphe.h"
 
 void AfficheurConsole::afficher(const Graphe& graphe)
 {
