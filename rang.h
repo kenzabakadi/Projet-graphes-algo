@@ -22,3 +22,5 @@ class Rang : public Algorithme {
 };
 
 #endif // RANG_H
+
+   

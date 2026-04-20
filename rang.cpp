@@ -47,7 +47,7 @@ void Rang::executer() {
             break;
         }
     }
-
+ 
 }
 
 void Rang::calculerDdi(std::vector<int>& ddi) {
