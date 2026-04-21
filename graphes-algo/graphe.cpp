@@ -55,6 +55,14 @@ vector<Arc> Graphe::retournerArcs() const {
     return arcs;
 }
 
+void Graphe::attribuerOriente(bool oriente) {
+    estOriente = oriente;
+}
+
+bool Graphe::retournerOriente() const {
+    return estOriente;
+}
+
 vector<vector<int>> Graphe::retournerMatrice() const {
     int n = sommets.size();
     int m = arcs.size();
