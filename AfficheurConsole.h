@@ -3,6 +3,6 @@
 class Graph;
 class AfficheurConsole : public Afficheur {
 public:
-    void Afficher(const Graphe& graphe) override;
+    void afficher(const Graphe& graphe) override;
 };
     

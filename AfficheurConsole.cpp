@@ -1,21 +1,50 @@
-#include"AfficheurConsole.h"
-#include<iostream>
-#include "graphe.h"
+#include "AfficheurConsole.h"
+#include <iostream>
+#include "./graphes-algo/graphe.h"
+
 void AfficheurConsole::afficher(const Graphe& graphe)
 {
-    cout << "==RESEAU DES STATION=="<<endl;
+    std::cout << "==RESEAU DES STATIONS==" << std::endl;
+
     auto lesSommets = graphe.retournerSommets();
     auto lesArcs = graphe.retournerArcs();
-    for (int i = 1;i < lesSommets.size();i++)
+    std::vector<int> fs, aps;
+    graphe.calculerFsAps(fs, aps);
+
+    int n = aps[0]; // Nombre de sommets
+
+    for (int i = 1; i <= n; i++)
     {
-        int NommbreArcDei = getfs(getaps[i + 1]) - getfs(getaps[i]) - 1;// ecrire getter pour fs et aps 
-            cout << "[Station " << i << "]" << lesSommets[i].stationessence().retourneNom();
-        if (getfs(getaps[i]) != 0)
-            for (int j = aps[i];j <NommbreArcDei;j++)
-            {
-                cout << "-> reliée à :Station" << getfs[j] << "(Poids : " << lesArcs[j].retournerPoids() << ")"// a implemnter
+        std::cout << "[Station " << i << "] " << lesSommets[i - 1].retournerDonnees();
+
+        int debut = aps[i];
+
+        // On lit fs jusqu'à trouver le 0 sentinelle
+        int j = debut;
+        bool aDesTrajets = false;
+
+        while (j < fs.size() && fs[j] != 0)
+        {
+            aDesTrajets = true;
+            int idDestination = fs[j];
+
+            // Trouver le poids de l'arc (Depart: i, Arrivee: idDestination)
+            int poids = -1;
+            for (const auto& arc : lesArcs) {
+                if (arc.retournerSommetDepart().retournerId() == i &&
+                    arc.retournerSommetArrivee().retournerId() == idDestination) {
+                    poids = arc.retournerPoids();
+                    break;
+                }
             }
-        else
-            cout << "(Aucun trajet au départ de cette station)";
+
+            std::cout << " -> Station " << idDestination << " (Poids : " << poids << ")";
+            j++;
+        }
+
+        if (!aDesTrajets) {
+            std::cout << " (Aucun trajet)";
+        }
+        std::cout << std::endl;
     }
 }

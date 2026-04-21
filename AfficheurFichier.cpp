@@ -1,38 +1,39 @@
-#include "AfficheurConsole.h"
+#include "AfficheurFichier.h"
 #include <iostream>
+#include"./graphes-algo/graphe.h"
+#include<fstream>
 
-void AfficheurConsole::afficher(const Graphe& graphe)
+void AfficheurFichier::afficher(const Graphe& graphe)
 {
-    std::cout << "== RESEAU DES STATIONS ==" << std::endl;
+        std::ofstream fichier(nomFichier);
 
-    // On récupère directement les listes
-    auto lesSommets = graphe.retournerSommets();
-    auto lesArcs = graphe.retournerArcs();
-
-    // On parcourt chaque station
-    for (const auto& sommet : lesSommets)
-    {
-        // Affichage de la station (le nom est dans "donnees")
-        std::cout << "\n[Station " << sommet.retournerId() << "] "
-            << sommet.retournerDonnees() << std::endl;
-
-        bool aDesTrajets = false;
-
-        // On cherche les arcs qui partent de cette station
-        for (const auto& arc : lesArcs)
+        if (!fichier.is_open()) 
         {
-            if (arc.retournerSommetDepart() == sommet)
-            {
-                std::cout << "  -> reliee a : Station "
-                    << arc.retournerSommetArrivee().retournerId()
-                    << " (Poids : " << arc.retournerPoids() << ")" << std::endl;
+            std::cerr << "Erreur : impossible de créer le fichier " << nomFichier << std::endl;
+            return;
+        }
 
-                aDesTrajets = true; // On a trouvé un trajet
-            }
+        auto lesSommets = graphe.retournerSommets();
+        auto lesArcs = graphe.retournerArcs();
+
+//Faut ajouter estOriete  a graphe.h
+        fichier << (graphe.estOriente() ? "o" : "n") << std::endl;
+
+        // 2. Nombre de sommets
+        fichier << lesSommets.size() << std::endl;
+
+        for (const auto& s : lesSommets) {
+            fichier << s.retournerDonnees() << std::endl;
         }
-        if (!aDesTrajets)
-        {
-            std::cout << "  (Aucun trajet au depart de cette station)" << std::endl;
+
+        fichier << lesArcs.size() << std::endl;
+
+        for (const auto& a : lesArcs) {
+            fichier << a.retournerSommetDepart().retournerId() << " "
+                << a.retournerSommetArrivee().retournerId() << " "
+                << a.retournerPoids() << std::endl;
         }
+
+        fichier.close();
+        std::cout << "Fichier exporte avec succes au format standard." << std::endl;
     }
-}
