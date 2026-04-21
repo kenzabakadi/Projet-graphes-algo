@@ -31,6 +31,9 @@ class Graphe {
         vector<Sommet> retournerSommets() const;
         vector<Arc> retournerArcs() const;
 
+        void attribuerOriente(bool oriente);
+        bool retournerOriente() const;
+
         // Représentations calculées 
         vector<vector<int>> retournerMatrice() const;
         void calculerFsAps(vector<int>& fs, vector<int>& aps) const;
