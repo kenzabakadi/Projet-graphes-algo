@@ -110,6 +110,12 @@ void Graphe::calculerFsAps(vector<int>& fs, vector<int>& aps) const {
     aps[0] = n;
 }
 
+void Graphe::reinitialiser(bool oriente)
+{
+    sommets.clear();
+    arcs.clear();
+    estOriente = oriente;
+}
 
 
 bool Graphe::estConnexe() const {
