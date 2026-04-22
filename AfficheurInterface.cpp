@@ -1,5 +1,5 @@
 #include "AfficheurInterface.h"
-#include "graphes-algo/graphe.h" // Inclure ton modèle
+#include "graphe.h" // Inclure ton modèle
 
 AfficheurInterface::AfficheurInterface(InterfaceGraphique* interface)
     : interfaceQt(interface) {

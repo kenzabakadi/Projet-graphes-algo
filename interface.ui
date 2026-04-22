@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>850</width>
-    <height>600</height>
+    <height>595</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -27,42 +27,6 @@
        <enum>QFrame::Shape::StyledPanel</enum>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout">
-       <item>
-        <widget class="QLabel" name="titreSommets">
-         <property name="font">
-          <font>
-           <bold>true</bold>
-          </font>
-         </property>
-         <property name="text">
-          <string>--- GESTION DES SOMMETS ---</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignmentFlag::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLineEdit" name="inputNomSommet">
-         <property name="placeholderText">
-          <string>Nom du sommet...</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="btnAjouterSommet">
-         <property name="text">
-          <string>Ajouter Sommet</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="btnSupprimerSommet">
-         <property name="text">
-          <string>Supprimer / Modifier Sommet</string>
-         </property>
-        </widget>
-       </item>
        <item>
         <widget class="Line" name="ligneSeparation">
          <property name="orientation">
@@ -114,9 +78,74 @@
         </widget>
        </item>
        <item>
+        <widget class="QPushButton" name="btnModifierArc">
+         <property name="text">
+          <string>Modifier</string>
+         </property>
+        </widget>
+       </item>
+       <item>
         <widget class="QPushButton" name="btnSupprimerArc">
          <property name="text">
-          <string>Supprimer / Modifier Arc</string>
+          <string>Supprimer</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QComboBox" name="comboBox">
+         <item>
+          <property name="text">
+           <string>Distance</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Tarjan</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Rang</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Prufer</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Ordonancement</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Kruskal</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Dijkstra</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Dantzig</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton">
+         <property name="text">
+          <string>Lancer Algorithme</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_2">
+         <property name="text">
+          <string>Arreter l'algorithme</string>
          </property>
         </widget>
        </item>

@@ -102,21 +102,46 @@ void ZoneDessin::mousePressEvent(QMouseEvent* event)
     if (event->button() != Qt::LeftButton) return;
     QPoint pos = event->pos();
 
+    // 1. Logique de sélection exclusive d'arc
+    int index = arcSous(pos);
+    if (index != -1) {
+        emit arcCliqueSignal(index);
+        return; // On arrête tout, on ne dessine rien par-dessus
+    }
+    else {
+        // On a cliqué dans le vide, on désélectionne
+        emit arcDeselectionneSignal();
+    }
+
+    // 2. Le switch existant pour les actions de dessin
     switch (m_mode) {
     case ModeSommet:
         if (m_avecStations) placerStation(pos);
         else                placerSommet(pos);
         break;
-    case ModeArc:     gererClicArc(pos);  break;
-    case ModeEffacer: effacerSommet(pos); break;
+    case ModeArc:
+        gererClicArc(pos);
+        break;
+    case ModeEffacer:
+        effacerSommet(pos);
+        break;
     }
 }
 
 void ZoneDessin::mouseDoubleClickEvent(QMouseEvent* event)
 {
     if (event->button() != Qt::LeftButton) return;
-    // Double-clic sur un arc -> modifier le poids (tous modes)
-    int idx = arcSous(event->pos());
+    QPoint pos = event->pos();
+
+    // Priorité 1 : sommet
+    int idSommet = sommetSous(pos);
+    if (idSommet != -1) {
+        emit demanderSuppressionSommetSignal(idSommet);
+        return;
+    }
+
+    // Priorité 2 : arc
+    int idx = arcSous(pos);
     if (idx != -1)
         modifierPoidsArc(idx);
 }
@@ -139,7 +164,9 @@ void ZoneDessin::placerSommet(const QPoint& pos)
     sv.nom = nom.trimmed();
     sv.pos = pos;
     m_sommets.push_back(sv);
+    emit sommetAjouteSignal(sv.id, sv.nom, sv.pos);
     update();
+
 }
 
 void ZoneDessin::placerStation(const QPoint& pos)
@@ -254,34 +281,24 @@ void ZoneDessin::effacerSommet(const QPoint& pos)
 {
     int id = sommetSous(pos);
     if (id == -1) return;
-
-    for (auto it = m_sommets.begin(); it != m_sommets.end(); ++it) {
-        if (it->id == id) { m_sommets.erase(it); break; }
-    }
-
-    m_arcs.erase(
-        std::remove_if(m_arcs.begin(), m_arcs.end(),[id](const ArcVisuel& a) 
-        {
-             return a.idDepart == id || a.idArrivee == id;
-        }),
-        m_arcs.end()
-        );
-
-    update();
+    effacerSommetParId(id);
 }
 
 void ZoneDessin::modifierPoidsArc(int indexArc)
 {
     ArcVisuel& a = m_arcs[indexArc];
+    int ancienPoids = a.poids;
+
     bool ok;
-    int nouveauPoids = QInputDialog::getInt(
-        this, "Modifier le poids",
-        QString("Nouveau poids de l'arc %1 -> %2 :")
-            .arg(a.idDepart).arg(a.idArrivee),
+    int nouveauPoids = QInputDialog::getInt(this, "Modifier le poids",
+        QString("Nouveau poids de %1 -> %2 :").arg(a.idDepart).arg(a.idArrivee),
         a.poids, -9999, 9999, 1, &ok);
+
     if (ok) {
-        a.poids = nouveauPoids;
+        a.poids = nouveauPoids; // ← mise à jour visuelle directe
         update();
+        emit arcModifieSignal(a.idDepart, a.idArrivee, ancienPoids, nouveauPoids);
+        // ← plus de a.poids = nouveauPoids ni de update() ici
     }
 }
 
@@ -363,10 +380,16 @@ void ZoneDessin::dessinerSommet(QPainter& p, const SommetVisuel& s, bool surbril
 
 void ZoneDessin::dessinerArc(QPainter& p, const ArcVisuel& a,bool /*surbrillance*/) const
 {
+    bool trouve = false;
     QPoint dep, arr;
     for (const SommetVisuel& s : m_sommets) {
-        if (s.id == a.idDepart)  dep = s.pos;
+        if (s.id == a.idDepart) { dep = s.pos; trouve = true; }
         if (s.id == a.idArrivee) arr = s.pos;
+    }
+    if (!trouve) {
+        // C'est ici que ça coince !
+        qDebug() << "Arc non dessiné : Sommet de départ ID" << a.idDepart << "introuvable dans m_sommets";
+        return;
     }
 
     p.setPen(QPen(QColor(227, 192, 161), 2));
@@ -494,3 +517,88 @@ int ZoneDessin::arcSous(const QPoint& pos) const
     }
     return -1;
 }
+//chargement dessin depuis un graphe 
+void ZoneDessin::chargerDepuisGraphe(const Graphe& g) {
+    m_sommets.clear();
+    m_arcs.clear();
+    m_prochainId = 1;
+
+    // Convertir les sommets du Graphe en SommetVisuel
+    for (const Sommet& s : g.retournerSommets()) {
+        SommetVisuel sv;
+        sv.id = s.retournerId();
+        sv.nom = QString::fromStdString(s.retournerDonnees());
+
+        double angle = 2.0 * 3.14159 * (sv.id - 1) / g.retournerSommets().size();
+        sv.pos = QPoint(300 + 150 * std::cos(angle), 200 + 100 * std::sin(angle));
+
+        m_sommets.push_back(sv);
+        if (sv.id >= m_prochainId) m_prochainId = sv.id + 1;
+    }
+
+    // Convertir les arcs du Graphe en ArcVisuel
+    for (const Arc& a : g.retournerArcs()) {
+        int idDep = a.retournerSommetDepart().retournerId();
+        int idArr = a.retournerSommetArrivee().retournerId();
+
+        // Si non-orienté, ignorer l'arc inverse pour ne pas afficher en double
+        if (!g.estOriente() && idDep > idArr) continue;
+
+        m_arcs.push_back({ idDep, idArr, a.retournerPoids() });
+    }
+
+    update();
+}
+void ZoneDessin::ajouterArcDeLExterieur(int idDepart, int idArrivee, int poids) {
+    // 1. Vérification de sécurité pour éviter les doublons
+    for (const ArcVisuel& a : m_arcs) {
+        if (a.idDepart == idDepart && a.idArrivee == idArrivee) {
+            return; // L'arc existe déjà
+        }
+    }
+
+    // 2. Ajout au vecteur interne
+    m_arcs.push_back({ idDepart, idArrivee, poids });
+    qDebug() << "Arc ajouté ! Nombre total d'arcs dans la zone :" << m_arcs.size();
+
+    // 3. Rafraîchissement de l'affichage
+    update();
+}
+ZoneDessin::ArcVisuel ZoneDessin::getArc(int index) const {
+    return m_arcs[index];
+}
+int ZoneDessin::getPoidsArc(int index) const {
+    if (index >= 0 && index < static_cast<int>(m_arcs.size())) {
+        return m_arcs[index].poids;
+    }
+    return 0;
+}
+
+
+
+void ZoneDessin::supprimerArcVisuel(int index) {
+    if (index >= 0 && index < static_cast<int>(m_arcs.size())) {
+        m_arcs.erase(m_arcs.begin() + index);
+        update(); // Important pour voir l'arc disparaître !
+    }
+}
+void ZoneDessin::modifierPoidsVisuel(int index, int nouveauPoids) {
+    if (index >= 0 && index < static_cast<int>(m_arcs.size())) {
+        m_arcs[index].poids = nouveauPoids;
+        update();
+    }
+}
+
+void ZoneDessin::effacerSommetParId(int id) {
+    // Supprimer le sommet de la liste des sommets
+    m_sommets.erase(std::remove_if(m_sommets.begin(), m_sommets.end(),
+        [id](const SommetVisuel& s) { return s.id == id; }), m_sommets.end());
+
+    // Supprimer tous les arcs connectés à ce sommet
+    m_arcs.erase(std::remove_if(m_arcs.begin(), m_arcs.end(),
+        [id](const ArcVisuel& a) { return a.idDepart == id || a.idArrivee == id; }),
+        m_arcs.end());
+
+    update(); // Rafraîchir l'affichage
+}
+int ZoneDessin::nbArcs() const { return static_cast<int>(m_arcs.size()); }

@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36616.10 d17.14
+VisualStudioVersion = 17.14.36616.10
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Test_Affichage", "Test_Affichage.vcxproj", "{A351E843-7F4D-EC65-B7DA-6B346C3CD2C9}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Affichage", "Test_Affichage.vcxproj", "{A351E843-7F4D-EC65-B7DA-6B346C3CD2C9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

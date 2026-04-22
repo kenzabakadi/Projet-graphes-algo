@@ -1,0 +1,449 @@
+<FlowDocument xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" FontFamily="Segoe UI" FontSize="12">
+  <FlowDocument.Tag><![CDATA[{
+  "timestamp": "2026-04-21 21:34:28",
+  "files": {
+    "C:\\Users\\belka\\Desktop\\Projet_Graphe_algo\\Projet-graphes-algo\\Test_Affichage.vcxproj": {
+      "before": "7VnvT+M2GL7PkybtP1gUMZV+aAuUg9toc4K0VNXKD1EOvpyE3PRt610SZ7bD4Hb73+cktlOX9tKMwaENPiDVeV/77ePnefra+eHHN29a7+8C37oFyjAJ2/Z2fcu2IPTIGIfTth3zSe2d/d75/rvWOSW/gcetDkxQ7PNLRKfAWds+irE/ti0xSyg+zTiPfmk0mDeDALF6gD1KGJnwukeCxhhuwScR0EbARklaY2drq2mL2S2r1ecQ9CiJI2uARuC3bbmgS8IJnsYUcVEgy4JF+LKnVj/0/HgMbbsDo3j65RqHzR2VIXKMqZw0ptUwB5NSkr/WuY/4hNDASSdpNfTnLEIMZHgsSy8o7gJ8QAwKypNR36LADL27vd3HYiemeBLkvlba2riVLK7V0AzNCCsIIKjM7w3S9nwyQn5O0ytX8uQqU5izvV/fajUeDEtWyeBejMfOn4fNt9vdd7vN2v7xbqfWdffe1o72O4e1vaPm7p7bdDs77s9/aSKmOXKaX+H+D0LHGXeTOVsNNWQudIoCcA4nE+zN0BT0XOlwEpmO5N9SKjWICOWWrLVtb2xeudIOzhGfVT+eaNW7UVSXhlGPBF7MthrL0BMqGuNE4G27srFpaKr6ZWNTia9aabcrc9qu2MosjBRFW1Pwl/eR+K5R5GMv9ZIFZaWPJTofGKSrDPCIIoqBOZzGAp6H4wpO6RaXhPgMuHO7vdvMma9GVyIqoMxBtsqAYXjJ88ExERx/kXho63o+LF46NYTPPR8YT0yMfjnrMS0nSzbsunvHIUw6nyFwLjoeadzC69OF0th50zOShzNEYZyZzXoZSufDGYjeyS6ldMP20pqEPT/EQ1gUvSCEdzBdNOI5H63HIkw58pzfwB1mnG0KDy49T6WqzXhAPOQLp+0gjpR1a+NfC9rHALVgia9Q6e55xU9pahCvMK2GSTHqvweU0pnha4n0T1BycNOiNePmDKNct6ZINsDhJ3FWoxBAyJEvu6vF0Sdol+bag29ei2JVesCs6J51EYWsvVgcfQJsVD0GyxfXLVlNcmQS/T8O0+Y+Y9mj2eP6Lgki7IPcwuS0TiGixAPGCM3XY851/7S5c3DT6R596B3cuGenw7NB9+CnzRXx1eS8s3ymrNEXS10jGopOYZDcZTjpf9HpG4NZqDheLNTZSsDMa+5BCOJWIztp9MPksiE9l0g1rHysKxnGo+E9Ewg7AlJGfNGQ50OqCL1mdn7NwZnvbf6VXTJ4s/jdv7JHr7uTHrSXSCXlSnoxtrBtpRpHpesFnymxQ5mKTv+3KhLk7YZo5IN7dtI5vDwmfnI7KnW67ImW6FnEcYA/wwVMgIprVX2TsOTBcypWceKfavaVCy+LC7mZC65qZef34dkVH8S07kWR6uoKQuWPSomMY3GNiMW5cv01+iEHOkEeFOd0MPLJNIYhwgyD66PbtZaaUhTNgNWQPyUfEfWKFzIysg8lkxgJAhCvPIqgNlZiPP31Fy1M4hPFyRq6XvIN8e/xGjkBwuENB8ZvkLrzLV6IpYAXx5XcmGzatSmThQ9JTDErruUzCUVfxRgO52MfXOGbN/qpHuQrpGXSmRnCWR2ohLNuvMJg3Xi98/WCjOWSKUgySJkIpky8lEuZFCmWUimmVApSNVy5UAoyJOMLoky+FwQbbLdqooGLMBRBayStFywFUlDNnDx0ZLE4ToWocl0YPKlPxQFvGhIKcxox47G2+hiroIdrlrvf5dlLaD3d3K2tejGkb3jlG6rl17X6zZfzNw==",
+      "after": "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"
+    },
+    "C:\\Users\\belka\\Desktop\\Projet_Graphe_algo\\Projet-graphes-algo\\Test_Affichage.vcxproj.user": {
+      "before": "zZNBS8MwFMcH3gS/QwiDbgebuYmItB0y0YuHzQ09d+1rm5HmleRlTtiHN+voYehRZMf8kvfP772QzUWvF013tWJbMFaijvlNOOIMdIa51GXMHRXX93yaXF1Gc4MbyIitEJV9787PnDGgiTOfom3MK6LmQQibVVCnNqxlZtBiQWGGtchhCwobMKK2aydVLsaj0YT7dMYO+X6Hvl4MuqZFHi4r/HxU6lkqsAkZB5E4QW2l+Fl6msZe0zWomC9oCUS+McvZDHUuqe056A/8qpClM+mBDPf9wVylVKCph0EcB0+wduX+Q+rJODjaerUFrdBlVXd3Zyx+49E/Ke7ubs9V8A0UpBbOe4qd5B/OsX36w8dJvgE=",
+      "after": "zZNNSwMxEIYL3gT/QwiFbQ82tRUR2d0iFb146Bd63o/ZbiTJlGRSK/THm93SQ/Uq0mOeZN48MySLi04nnuy0YluwTqJJ+M1gyBmYAktp1gn3VF3f80l6dRnPLH5AQWyFqNzb8fzUWwuGOAspxiW8Jto8COGKGnTmBloWFh1WNChQixK2oHADVmiXe6lKMRoOxzykM9bkhx36erHoNy0KcFnj56NSz1KBS8l6iMUJaivF79LTNPaa5aASPqclEIXGHGdTNKWktueo2wurSq69zRrS33d7M5VRhVb3oySJniD36/27NONRdLANanNaoS/q491pLH6S/5Tb3d2en9oCFGQOznVyR70/mV3cvMLmg6Tf"
+    }
+  }
+}]]></FlowDocument.Tag>
+  <Section Margin="0,24" TextAlignment="Center">
+    <Paragraph FontSize="24" FontWeight="Bold" Margin="12,0">
+      <LineBreak />
+      <Span Foreground="Gray">Qt Visual Studio Tools</Span>
+    </Paragraph>
+    <Paragraph FontSize="42" Margin="12,0" FontWeight="Bold">
+      <Span TextDecorations="Underline">Project Format Conversion</Span>
+    </Paragraph>
+    <Paragraph Margin="12,8" FontSize="18">
+      <Span>Report generated on 2026-04-21 21:34:28</Span>
+    </Paragraph>
+  </Section>
+  <Section>
+    <Paragraph FontSize="32" FontWeight="Bold" Margin="12,0">
+      <Span>Files</Span>
+    </Paragraph>
+    <Paragraph Margin="24,12,0,0">
+      <Span FontFamily="Consolas" FontSize="14" Background="WhiteSmoke"><![CDATA[C:\Users\belka\Desktop\Projet_Graphe_algo\Projet-graphes-algo\Test_Affichage.vcxproj]]></Span>
+      <LineBreak />
+      <Hyperlink NavigateUri="file://C:\Users\belka\Desktop\Projet_Graphe_algo\Projet-graphes-algo\Test_Affichage.vcxproj?before">[Before]</Hyperlink>
+      <Hyperlink NavigateUri="file://C:\Users\belka\Desktop\Projet_Graphe_algo\Projet-graphes-algo\Test_Affichage.vcxproj?after">[After]</Hyperlink>
+      <Hyperlink NavigateUri="file://C:\Users\belka\Desktop\Projet_Graphe_algo\Projet-graphes-algo\Test_Affichage.vcxproj?diff&amp;before&amp;after">
+                        [Diff before/after]
+                    </Hyperlink>
+      <Hyperlink NavigateUri="file://C:\Users\belka\Desktop\Projet_Graphe_algo\Projet-graphes-algo\Test_Affichage.vcxproj?diff&amp;before&amp;current">
+                        [Diff before/current]
+                    </Hyperlink>
+      <Hyperlink NavigateUri="file://C:\Users\belka\Desktop\Projet_Graphe_algo\Projet-graphes-algo\Test_Affichage.vcxproj?diff&amp;after&amp;current">
+                        [Diff after/current]
+                    </Hyperlink>
+      <LineBreak />
+    </Paragraph>
+    <Paragraph Margin="24,12,0,0">
+      <Span FontFamily="Consolas" FontSize="14" Background="WhiteSmoke"><![CDATA[C:\Users\belka\Desktop\Projet_Graphe_algo\Projet-graphes-algo\Test_Affichage.vcxproj.user]]></Span>
+      <LineBreak />
+      <Hyperlink NavigateUri="file://C:\Users\belka\Desktop\Projet_Graphe_algo\Projet-graphes-algo\Test_Affichage.vcxproj.user?before">[Before]</Hyperlink>
+      <Hyperlink NavigateUri="file://C:\Users\belka\Desktop\Projet_Graphe_algo\Projet-graphes-algo\Test_Affichage.vcxproj.user?after">[After]</Hyperlink>
+      <Hyperlink NavigateUri="file://C:\Users\belka\Desktop\Projet_Graphe_algo\Projet-graphes-algo\Test_Affichage.vcxproj.user?diff&amp;before&amp;after">
+                        [Diff before/after]
+                    </Hyperlink>
+      <Hyperlink NavigateUri="file://C:\Users\belka\Desktop\Projet_Graphe_algo\Projet-graphes-algo\Test_Affichage.vcxproj.user?diff&amp;before&amp;current">
+                        [Diff before/current]
+                    </Hyperlink>
+      <Hyperlink NavigateUri="file://C:\Users\belka\Desktop\Projet_Graphe_algo\Projet-graphes-algo\Test_Affichage.vcxproj.user?diff&amp;after&amp;current">
+                        [Diff after/current]
+                    </Hyperlink>
+      <LineBreak />
+    </Paragraph>
+  </Section>
+  <Section>
+    <Paragraph FontSize="32" FontWeight="Bold" Margin="12,0">
+      <Span>Changes</Span>
+    </Paragraph>
+    <Paragraph FontSize="20" FontWeight="Bold" Margin="12">
+      <Span><![CDATA[🡺 Enabling multi-processor compilation]]></Span>
+    </Paragraph>
+    <Table CellSpacing="0" BorderBrush="Gray" BorderThickness="0.5">
+      <Table.Columns>
+        <TableColumn />
+        <TableColumn />
+      </Table.Columns>
+      <TableRowGroup>
+        <TableRow Background="Orange">
+          <TableCell ColumnSpan="2" BorderThickness="0.5" BorderBrush="Gray">
+            <Paragraph Margin="10,5" FontWeight="Bold">
+              <Span><![CDATA[C:\Users\belka\Desktop\Projet_Graphe_algo\Projet-graphes-algo\Test_Affichage.vcxproj]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell ColumnSpan="2" Background="WhiteSmoke" BorderBrush="Gray" BorderThickness="0.5" />
+        </TableRow>
+        <TableRow>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0" />
+          </TableCell>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0">
+              <Span Background="LightGreen"><![CDATA[      <MultiProcessorCompilation>true</MultiProcessorCompilation>]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell ColumnSpan="2" Background="WhiteSmoke" BorderBrush="Gray" BorderThickness="0.5" />
+        </TableRow>
+        <TableRow>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0" />
+          </TableCell>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0">
+              <Span Background="LightGreen"><![CDATA[      <MultiProcessorCompilation>true</MultiProcessorCompilation>]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell ColumnSpan="2" Background="WhiteSmoke" BorderBrush="Gray" BorderThickness="0.5" />
+        </TableRow>
+        <TableRow>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0" />
+          </TableCell>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0">
+              <Span Background="LightGreen"><![CDATA[      <MultiProcessorCompilation>true</MultiProcessorCompilation>]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell ColumnSpan="2" Background="WhiteSmoke" BorderBrush="Gray" BorderThickness="0.5" />
+        </TableRow>
+        <TableRow>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0" />
+          </TableCell>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0">
+              <Span Background="LightGreen"><![CDATA[      <MultiProcessorCompilation>true</MultiProcessorCompilation>]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+      </TableRowGroup>
+    </Table>
+    <Paragraph FontSize="20" FontWeight="Bold" Margin="12">
+      <Span><![CDATA[🡺 Project format version]]></Span>
+    </Paragraph>
+    <Table CellSpacing="0" BorderBrush="Gray" BorderThickness="0.5">
+      <Table.Columns>
+        <TableColumn />
+        <TableColumn />
+      </Table.Columns>
+      <TableRowGroup>
+        <TableRow Background="Orange">
+          <TableCell ColumnSpan="2" BorderThickness="0.5" BorderBrush="Gray">
+            <Paragraph Margin="10,5" FontWeight="Bold">
+              <Span><![CDATA[C:\Users\belka\Desktop\Projet_Graphe_algo\Projet-graphes-algo\Test_Affichage.vcxproj]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell ColumnSpan="2" Background="WhiteSmoke" BorderBrush="Gray" BorderThickness="0.5" />
+        </TableRow>
+        <TableRow>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0" />
+          </TableCell>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0">
+              <Span Background="LightGreen"><![CDATA[    <Keyword>QtVS_v304</Keyword>]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+      </TableRowGroup>
+    </Table>
+    <Paragraph FontSize="20" FontWeight="Bold" Margin="12">
+      <Span><![CDATA[🡺 Fallback for QTMSBUILD environment variable]]></Span>
+    </Paragraph>
+    <Table CellSpacing="0" BorderBrush="Gray" BorderThickness="0.5">
+      <Table.Columns>
+        <TableColumn />
+        <TableColumn />
+      </Table.Columns>
+      <TableRowGroup>
+        <TableRow Background="Orange">
+          <TableCell ColumnSpan="2" BorderThickness="0.5" BorderBrush="Gray">
+            <Paragraph Margin="10,5" FontWeight="Bold">
+              <Span><![CDATA[C:\Users\belka\Desktop\Projet_Graphe_algo\Projet-graphes-algo\Test_Affichage.vcxproj]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell ColumnSpan="2" Background="WhiteSmoke" BorderBrush="Gray" BorderThickness="0.5" />
+        </TableRow>
+        <TableRow>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0" />
+          </TableCell>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0">
+              <Span Background="LightGreen"><![CDATA[    <QtMsBuild Condition="'$(QtMsBuild)'=='' OR !Exists('$(QtMsBuild)\qt.targets')">$(MSBuildProjectDirectory)\QtMsBuild</QtMsBuild>]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+      </TableRowGroup>
+    </Table>
+    <Paragraph FontSize="20" FontWeight="Bold" Margin="12">
+      <Span><![CDATA[🡺 Default Qt properties]]></Span>
+    </Paragraph>
+    <Table CellSpacing="0" BorderBrush="Gray" BorderThickness="0.5">
+      <Table.Columns>
+        <TableColumn />
+        <TableColumn />
+      </Table.Columns>
+      <TableRowGroup>
+        <TableRow Background="Orange">
+          <TableCell ColumnSpan="2" BorderThickness="0.5" BorderBrush="Gray">
+            <Paragraph Margin="10,5" FontWeight="Bold">
+              <Span><![CDATA[C:\Users\belka\Desktop\Projet_Graphe_algo\Projet-graphes-algo\Test_Affichage.vcxproj]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell ColumnSpan="2" Background="WhiteSmoke" BorderBrush="Gray" BorderThickness="0.5" />
+        </TableRow>
+        <TableRow>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0" />
+          </TableCell>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0">
+              <Span Background="LightGreen"><![CDATA[  <Import Project="$(QtMsBuild)\qt_defaults.props" Condition="Exists('$(QtMsBuild)\qt_defaults.props')" />]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+      </TableRowGroup>
+    </Table>
+    <Paragraph FontSize="20" FontWeight="Bold" Margin="12">
+      <Span><![CDATA[🡺 Qt build settings]]></Span>
+    </Paragraph>
+    <Table CellSpacing="0" BorderBrush="Gray" BorderThickness="0.5">
+      <Table.Columns>
+        <TableColumn />
+        <TableColumn />
+      </Table.Columns>
+      <TableRowGroup>
+        <TableRow Background="Orange">
+          <TableCell ColumnSpan="2" BorderThickness="0.5" BorderBrush="Gray">
+            <Paragraph Margin="10,5" FontWeight="Bold">
+              <Span><![CDATA[C:\Users\belka\Desktop\Projet_Graphe_algo\Projet-graphes-algo\Test_Affichage.vcxproj]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell ColumnSpan="2" Background="WhiteSmoke" BorderBrush="Gray" BorderThickness="0.5" />
+        </TableRow>
+        <TableRow>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0" />
+          </TableCell>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0">
+              <Span Background="LightGreen"><![CDATA[  <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0" />
+          </TableCell>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0">
+              <Span Background="LightGreen"><![CDATA[  <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0" />
+          </TableCell>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0">
+              <Span Background="LightGreen"><![CDATA[  <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" />]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0" />
+          </TableCell>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0">
+              <Span Background="LightGreen"><![CDATA[  <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Release|x64'" />]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+      </TableRowGroup>
+    </Table>
+    <Paragraph FontSize="20" FontWeight="Bold" Margin="12">
+      <Span><![CDATA[🡺 Warn if Qt/MSBuild is not found]]></Span>
+    </Paragraph>
+    <Table CellSpacing="0" BorderBrush="Gray" BorderThickness="0.5">
+      <Table.Columns>
+        <TableColumn />
+        <TableColumn />
+      </Table.Columns>
+      <TableRowGroup>
+        <TableRow Background="Orange">
+          <TableCell ColumnSpan="2" BorderThickness="0.5" BorderBrush="Gray">
+            <Paragraph Margin="10,5" FontWeight="Bold">
+              <Span><![CDATA[C:\Users\belka\Desktop\Projet_Graphe_algo\Projet-graphes-algo\Test_Affichage.vcxproj]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell ColumnSpan="2" Background="WhiteSmoke" BorderBrush="Gray" BorderThickness="0.5" />
+        </TableRow>
+        <TableRow>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0" />
+          </TableCell>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0">
+              <Span Background="LightGreen"><![CDATA[  <Target Name="QtMsBuildNotFound" BeforeTargets="CustomBuild;ClCompile" Condition="!Exists('$(QtMsBuild)\qt.targets') OR !Exists('$(QtMsBuild)\Qt.props')">]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0" />
+          </TableCell>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0">
+              <Span Background="LightGreen"><![CDATA[    <Message Importance="High" Text="QtMsBuild: could not locate qt.targets, qt.props; project may not build correctly." />]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0" />
+          </TableCell>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0">
+              <Span Background="LightGreen"><![CDATA[  </Target>]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+      </TableRowGroup>
+    </Table>
+    <Paragraph FontSize="20" FontWeight="Bold" Margin="12">
+      <Span><![CDATA[🡺 Qt property sheet]]></Span>
+    </Paragraph>
+    <Table CellSpacing="0" BorderBrush="Gray" BorderThickness="0.5">
+      <Table.Columns>
+        <TableColumn />
+        <TableColumn />
+      </Table.Columns>
+      <TableRowGroup>
+        <TableRow Background="Orange">
+          <TableCell ColumnSpan="2" BorderThickness="0.5" BorderBrush="Gray">
+            <Paragraph Margin="10,5" FontWeight="Bold">
+              <Span><![CDATA[C:\Users\belka\Desktop\Projet_Graphe_algo\Projet-graphes-algo\Test_Affichage.vcxproj]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell ColumnSpan="2" Background="WhiteSmoke" BorderBrush="Gray" BorderThickness="0.5" />
+        </TableRow>
+        <TableRow>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0" />
+          </TableCell>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0">
+              <Span Background="LightGreen"><![CDATA[    <Import Project="$(QtMsBuild)\Qt.props" />]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell ColumnSpan="2" Background="WhiteSmoke" BorderBrush="Gray" BorderThickness="0.5" />
+        </TableRow>
+        <TableRow>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0" />
+          </TableCell>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0">
+              <Span Background="LightGreen"><![CDATA[    <Import Project="$(QtMsBuild)\Qt.props" />]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell ColumnSpan="2" Background="WhiteSmoke" BorderBrush="Gray" BorderThickness="0.5" />
+        </TableRow>
+        <TableRow>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0" />
+          </TableCell>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0">
+              <Span Background="LightGreen"><![CDATA[    <Import Project="$(QtMsBuild)\Qt.props" />]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell ColumnSpan="2" Background="WhiteSmoke" BorderBrush="Gray" BorderThickness="0.5" />
+        </TableRow>
+        <TableRow>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0" />
+          </TableCell>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0">
+              <Span Background="LightGreen"><![CDATA[    <Import Project="$(QtMsBuild)\Qt.props" />]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+      </TableRowGroup>
+    </Table>
+    <Paragraph FontSize="20" FontWeight="Bold" Margin="12">
+      <Span><![CDATA[🡺 Qt targets]]></Span>
+    </Paragraph>
+    <Table CellSpacing="0" BorderBrush="Gray" BorderThickness="0.5">
+      <Table.Columns>
+        <TableColumn />
+        <TableColumn />
+      </Table.Columns>
+      <TableRowGroup>
+        <TableRow Background="Orange">
+          <TableCell ColumnSpan="2" BorderThickness="0.5" BorderBrush="Gray">
+            <Paragraph Margin="10,5" FontWeight="Bold">
+              <Span><![CDATA[C:\Users\belka\Desktop\Projet_Graphe_algo\Projet-graphes-algo\Test_Affichage.vcxproj]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell ColumnSpan="2" Background="WhiteSmoke" BorderBrush="Gray" BorderThickness="0.5" />
+        </TableRow>
+        <TableRow>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0" />
+          </TableCell>
+          <TableCell BorderThickness="0, 0, 0.5, 0" BorderBrush="Gray">
+            <Paragraph FontFamily="Consolas" Margin="4, 0">
+              <Span Background="LightGreen"><![CDATA[  <Import Project="$(QtMsBuild)\qt.targets" Condition="Exists('$(QtMsBuild)\qt.targets')" />]]></Span>
+            </Paragraph>
+          </TableCell>
+        </TableRow>
+      </TableRowGroup>
+    </Table>
+  </Section>
+  <Section>
+    <Paragraph />
+  </Section>
+</FlowDocument>
+<!--ED1nPgGrKd+Fo9T0AvqUVCveGXhWoO7wqJUUVjAt3OY=-->

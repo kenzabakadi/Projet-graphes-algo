@@ -27,9 +27,15 @@ class ZoneDessin : public QWidget
     Q_OBJECT
 
 public:
+    struct ArcVisuel {
+        int idDepart;
+        int idArrivee;
+        int poids;
+    };
     enum Mode { ModeSommet, ModeArc, ModeEffacer };
 
     explicit ZoneDessin(bool oriente, QWidget* parent = nullptr);
+    void chargerDepuisGraphe(const Graphe& g);
 
     void setMode(Mode mode);
     void setOriente(bool oriente);
@@ -37,6 +43,20 @@ public:
     bool avecStations() const { return m_avecStations; }
     void reinitialiser();
     bool confirmer(Graphe& graphe) const;
+    void ajouterArcDeLExterieur(int idDepart, int idArrivee, int poids);
+    int getPoidsArc(int index) const;
+    void supprimerArcVisuel(int index);
+    ArcVisuel getArc(int index) const;
+    void modifierPoidsVisuel(int index, int nouveauPoids);
+    void effacerSommetParId(int id);
+    int nbArcs() const;
+
+signals:
+    void sommetAjouteSignal(int id, QString nom,QPoint pos);
+    void arcCliqueSignal(int index); 
+    void arcDeselectionneSignal();
+    void arcModifieSignal(int idDep, int idArr, int ancienPoids, int nouveauPoids);
+    void demanderSuppressionSommetSignal(int idSommet);
 
 protected:
     void mousePressEvent(QMouseEvent* event) override;
@@ -54,11 +74,7 @@ private:
         double  prixSP95 = -1, prixSP98 = -1, prixGazole = -1;
     };
 
-    struct ArcVisuel {
-        int idDepart;
-        int idArrivee;
-        int poids;
-    };
+   
 
     bool m_oriente;
     bool m_avecStations;

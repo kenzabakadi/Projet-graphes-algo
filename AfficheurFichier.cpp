@@ -1,6 +1,6 @@
 #include "AfficheurFichier.h"
 #include <iostream>
-#include"./graphes-algo/graphe.h"
+#include"graphe.h"
 #include<fstream>
 
 void AfficheurFichier::afficher(const Graphe& graphe)
