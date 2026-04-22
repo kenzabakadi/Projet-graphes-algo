@@ -20,5 +20,4 @@ public:
 
     bool operator==(const Sommet& autre) const;
 };
-
 #endif // SOMMET_H
