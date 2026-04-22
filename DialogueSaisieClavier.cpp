@@ -39,33 +39,43 @@ QGroupBox* DialogueSaisieClavier::construireGroupeParametres()
     QVBoxLayout* layout = new QVBoxLayout(groupe);
 
     m_checkOriente = new QCheckBox("Graphe orienté");
+    m_checkOriente->setChecked(m_graphe.retournerOriente());
     layout->addWidget(m_checkOriente);
+
+    // Nombre de sommets existants
+    int nbSommets = static_cast<int>(m_graphe.retournerSommets().size());
+    int valeurInitiale = nbSommets > 0 ? nbSommets : 3;
 
     QHBoxLayout* layoutNb = new QHBoxLayout;
     layoutNb->addWidget(new QLabel("Nombre de sommets :"));
     m_spinNbSommets = new QSpinBox;
     m_spinNbSommets->setRange(1, 100);
-    m_spinNbSommets->setValue(3);
+    m_spinNbSommets->setValue(valeurInitiale);
     layoutNb->addWidget(m_spinNbSommets);
     layoutNb->addStretch();
     layout->addLayout(layoutNb);
 
-    QLabel* labelSommets = new QLabel("Noms des sommets :");
-    layout->addWidget(labelSommets);
+    layout->addWidget(new QLabel("Noms des sommets :"));
 
-    m_tableSommets = new QTableWidget(3, 1, groupe);
+    m_tableSommets = new QTableWidget(valeurInitiale, 1, groupe);
     m_tableSommets->setHorizontalHeaderLabels({"Nom"});
     m_tableSommets->horizontalHeader()->setSectionResizeMode(0, QHeaderView::Stretch);
     m_tableSommets->setSelectionMode(QAbstractItemView::SingleSelection);
     m_tableSommets->setMaximumHeight(160);
 
-    surChangementNbSommets(3);
-
-    layout->addWidget(m_tableSommets);
+    // Remplir avec les sommets existants ou des valeurs par défaut
+    const auto& sommets = m_graphe.retournerSommets();
+    for (int i = 0; i < valeurInitiale; ++i) {
+        QString nom = (i < static_cast<int>(sommets.size()))
+        ? QString::fromStdString(sommets[i].retournerDonnees())
+        : QString("Sommet %1").arg(i + 1);
+        m_tableSommets->setItem(i, 0, new QTableWidgetItem(nom));
+    }
 
     connect(m_spinNbSommets, QOverload<int>::of(&QSpinBox::valueChanged),
             this, &DialogueSaisieClavier::surChangementNbSommets);
 
+    layout->addWidget(m_tableSommets);
     return groupe;
 }
 
@@ -95,8 +105,30 @@ QGroupBox* DialogueSaisieClavier::construireGroupeArcs()
     aide->setWordWrap(true);
     layout->addWidget(aide);
 
+
     connect(m_btnAjouterArc,   &QPushButton::clicked, this, &DialogueSaisieClavier::surAjoutArc);
     connect(m_btnSupprimerArc, &QPushButton::clicked, this, &DialogueSaisieClavier::surSuppressionArc);
+
+    const auto& arcs = m_graphe.retournerArcs();
+    int pas = m_graphe.retournerOriente() ? 1 : 2;
+    int n   = m_spinNbSommets->value();
+
+    for (int i = 0; i < static_cast<int>(arcs.size()); i += pas) {
+        int ligne = m_tableArcs->rowCount();
+        m_tableArcs->insertRow(ligne);
+
+        QSpinBox* spinDep = new QSpinBox; spinDep->setRange(1, n);
+        spinDep->setValue(arcs[i].retournerSommetDepart().retournerId());
+        m_tableArcs->setCellWidget(ligne, 0, spinDep);
+
+        QSpinBox* spinArr = new QSpinBox; spinArr->setRange(1, n);
+        spinArr->setValue(arcs[i].retournerSommetArrivee().retournerId());
+        m_tableArcs->setCellWidget(ligne, 1, spinArr);
+
+        QSpinBox* spinPds = new QSpinBox; spinPds->setRange(-9999, 9999);
+        spinPds->setValue(arcs[i].retournerPoids());
+        m_tableArcs->setCellWidget(ligne, 2, spinPds);
+    }
 
     return groupe;
 }
@@ -144,6 +176,7 @@ void DialogueSaisieClavier::surSuppressionArc()
 
 void DialogueSaisieClavier::surValidation()
 {
+    m_graphe.reinitialiser(m_checkOriente->isChecked());
     std::vector<Sommet> sommets;
     if (!validerSommets(sommets)) return;
 

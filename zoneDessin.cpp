@@ -76,6 +76,8 @@ bool ZoneDessin::confirmer(Graphe& graphe) const
         return false;
     }
 
+    graphe.reinitialiser(m_oriente);
+
     for (const SommetVisuel& sv : m_sommets)
         graphe.ajouterSommet(Sommet(sv.id, sv.nom.toStdString()));
 
