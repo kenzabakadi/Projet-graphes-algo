@@ -92,7 +92,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QComboBox" name="comboBox">
+        <widget class="QComboBox" name="comboAlgorithme">
          <item>
           <property name="text">
            <string>Distance</string>
@@ -136,7 +136,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButton">
+        <widget class="QPushButton" name="btnLancerAlgorithme">
          <property name="text">
           <string>Lancer Algorithme</string>
          </property>
@@ -146,6 +146,27 @@
         <widget class="QPushButton" name="pushButton_2">
          <property name="text">
           <string>Arreter l'algorithme</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btnSaisieClavier">
+         <property name="text">
+          <string>Saisie clavier</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btnChargerFichier">
+         <property name="text">
+          <string>Charger depuis fichier</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btnSauvgarderFichier">
+         <property name="text">
+          <string>Sauvegarder fichier</string>
          </property>
         </widget>
        </item>
@@ -168,7 +189,7 @@
     <item>
      <widget class="QTabWidget" name="ongletsAffichage">
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="ongletGraphique">
        <attribute name="title">
@@ -193,7 +214,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QListWidget" name="listeSommets"/>
+         <widget class="QListWidget" name="textSommets"/>
         </item>
         <item>
          <widget class="QLabel" name="labelListeArcs">
@@ -203,7 +224,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QListWidget" name="listeArcs"/>
+         <widget class="QListWidget" name="textArcs"/>
         </item>
        </layout>
       </widget>

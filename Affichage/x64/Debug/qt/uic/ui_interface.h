@@ -42,9 +42,12 @@ public:
     QPushButton *btnAjouterArc;
     QPushButton *btnModifierArc;
     QPushButton *btnSupprimerArc;
-    QComboBox *comboBox;
-    QPushButton *pushButton;
+    QComboBox *comboAlgorithme;
+    QPushButton *btnLancerAlgorithme;
     QPushButton *pushButton_2;
+    QPushButton *btnSaisieClavier;
+    QPushButton *btnChargerFichier;
+    QPushButton *btnSauvgarderFichier;
     QSpacerItem *espaceVertical;
     QTabWidget *ongletsAffichage;
     QWidget *ongletGraphique;
@@ -53,9 +56,9 @@ public:
     QWidget *ongletListes;
     QVBoxLayout *verticalLayout_3;
     QLabel *labelListeSommets;
-    QListWidget *listeSommets;
+    QListWidget *textSommets;
     QLabel *labelListeArcs;
-    QListWidget *listeArcs;
+    QListWidget *textArcs;
 
     void setupUi(QMainWindow *FenetreGraphe)
     {
@@ -118,28 +121,43 @@ public:
 
         verticalLayout->addWidget(btnSupprimerArc);
 
-        comboBox = new QComboBox(frameControles);
-        comboBox->addItem(QString());
-        comboBox->addItem(QString());
-        comboBox->addItem(QString());
-        comboBox->addItem(QString());
-        comboBox->addItem(QString());
-        comboBox->addItem(QString());
-        comboBox->addItem(QString());
-        comboBox->addItem(QString());
-        comboBox->setObjectName("comboBox");
+        comboAlgorithme = new QComboBox(frameControles);
+        comboAlgorithme->addItem(QString());
+        comboAlgorithme->addItem(QString());
+        comboAlgorithme->addItem(QString());
+        comboAlgorithme->addItem(QString());
+        comboAlgorithme->addItem(QString());
+        comboAlgorithme->addItem(QString());
+        comboAlgorithme->addItem(QString());
+        comboAlgorithme->addItem(QString());
+        comboAlgorithme->setObjectName("comboAlgorithme");
 
-        verticalLayout->addWidget(comboBox);
+        verticalLayout->addWidget(comboAlgorithme);
 
-        pushButton = new QPushButton(frameControles);
-        pushButton->setObjectName("pushButton");
+        btnLancerAlgorithme = new QPushButton(frameControles);
+        btnLancerAlgorithme->setObjectName("btnLancerAlgorithme");
 
-        verticalLayout->addWidget(pushButton);
+        verticalLayout->addWidget(btnLancerAlgorithme);
 
         pushButton_2 = new QPushButton(frameControles);
         pushButton_2->setObjectName("pushButton_2");
 
         verticalLayout->addWidget(pushButton_2);
+
+        btnSaisieClavier = new QPushButton(frameControles);
+        btnSaisieClavier->setObjectName("btnSaisieClavier");
+
+        verticalLayout->addWidget(btnSaisieClavier);
+
+        btnChargerFichier = new QPushButton(frameControles);
+        btnChargerFichier->setObjectName("btnChargerFichier");
+
+        verticalLayout->addWidget(btnChargerFichier);
+
+        btnSauvgarderFichier = new QPushButton(frameControles);
+        btnSauvgarderFichier->setObjectName("btnSauvgarderFichier");
+
+        verticalLayout->addWidget(btnSauvgarderFichier);
 
         espaceVertical = new QSpacerItem(20, 40, QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Expanding);
 
@@ -169,20 +187,20 @@ public:
 
         verticalLayout_3->addWidget(labelListeSommets);
 
-        listeSommets = new QListWidget(ongletListes);
-        listeSommets->setObjectName("listeSommets");
+        textSommets = new QListWidget(ongletListes);
+        textSommets->setObjectName("textSommets");
 
-        verticalLayout_3->addWidget(listeSommets);
+        verticalLayout_3->addWidget(textSommets);
 
         labelListeArcs = new QLabel(ongletListes);
         labelListeArcs->setObjectName("labelListeArcs");
 
         verticalLayout_3->addWidget(labelListeArcs);
 
-        listeArcs = new QListWidget(ongletListes);
-        listeArcs->setObjectName("listeArcs");
+        textArcs = new QListWidget(ongletListes);
+        textArcs->setObjectName("textArcs");
 
-        verticalLayout_3->addWidget(listeArcs);
+        verticalLayout_3->addWidget(textArcs);
 
         ongletsAffichage->addTab(ongletListes, QString());
 
@@ -192,7 +210,7 @@ public:
 
         retranslateUi(FenetreGraphe);
 
-        ongletsAffichage->setCurrentIndex(0);
+        ongletsAffichage->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(FenetreGraphe);
@@ -208,17 +226,20 @@ public:
         btnAjouterArc->setText(QCoreApplication::translate("FenetreGraphe", "Ajouter Arc", nullptr));
         btnModifierArc->setText(QCoreApplication::translate("FenetreGraphe", "Modifier", nullptr));
         btnSupprimerArc->setText(QCoreApplication::translate("FenetreGraphe", "Supprimer", nullptr));
-        comboBox->setItemText(0, QCoreApplication::translate("FenetreGraphe", "Distance", nullptr));
-        comboBox->setItemText(1, QCoreApplication::translate("FenetreGraphe", "Tarjan", nullptr));
-        comboBox->setItemText(2, QCoreApplication::translate("FenetreGraphe", "Rang", nullptr));
-        comboBox->setItemText(3, QCoreApplication::translate("FenetreGraphe", "Prufer", nullptr));
-        comboBox->setItemText(4, QCoreApplication::translate("FenetreGraphe", "Ordonancement", nullptr));
-        comboBox->setItemText(5, QCoreApplication::translate("FenetreGraphe", "Kruskal", nullptr));
-        comboBox->setItemText(6, QCoreApplication::translate("FenetreGraphe", "Dijkstra", nullptr));
-        comboBox->setItemText(7, QCoreApplication::translate("FenetreGraphe", "Dantzig", nullptr));
+        comboAlgorithme->setItemText(0, QCoreApplication::translate("FenetreGraphe", "Distance", nullptr));
+        comboAlgorithme->setItemText(1, QCoreApplication::translate("FenetreGraphe", "Tarjan", nullptr));
+        comboAlgorithme->setItemText(2, QCoreApplication::translate("FenetreGraphe", "Rang", nullptr));
+        comboAlgorithme->setItemText(3, QCoreApplication::translate("FenetreGraphe", "Prufer", nullptr));
+        comboAlgorithme->setItemText(4, QCoreApplication::translate("FenetreGraphe", "Ordonancement", nullptr));
+        comboAlgorithme->setItemText(5, QCoreApplication::translate("FenetreGraphe", "Kruskal", nullptr));
+        comboAlgorithme->setItemText(6, QCoreApplication::translate("FenetreGraphe", "Dijkstra", nullptr));
+        comboAlgorithme->setItemText(7, QCoreApplication::translate("FenetreGraphe", "Dantzig", nullptr));
 
-        pushButton->setText(QCoreApplication::translate("FenetreGraphe", "Lancer Algorithme", nullptr));
+        btnLancerAlgorithme->setText(QCoreApplication::translate("FenetreGraphe", "Lancer Algorithme", nullptr));
         pushButton_2->setText(QCoreApplication::translate("FenetreGraphe", "Arreter l'algorithme", nullptr));
+        btnSaisieClavier->setText(QCoreApplication::translate("FenetreGraphe", "Saisie clavier", nullptr));
+        btnChargerFichier->setText(QCoreApplication::translate("FenetreGraphe", "Charger depuis fichier", nullptr));
+        btnSauvgarderFichier->setText(QCoreApplication::translate("FenetreGraphe", "Sauvegarder fichier", nullptr));
         ongletsAffichage->setTabText(ongletsAffichage->indexOf(ongletGraphique), QCoreApplication::translate("FenetreGraphe", "Vue Graphique Visuelle", nullptr));
         labelListeSommets->setText(QCoreApplication::translate("FenetreGraphe", "Liste des sommets existants :", nullptr));
         labelListeArcs->setText(QCoreApplication::translate("FenetreGraphe", "Liste des arcs existants :", nullptr));

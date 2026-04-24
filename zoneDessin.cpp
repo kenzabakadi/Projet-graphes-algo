@@ -4,6 +4,7 @@
 #include <QFont>
 #include <cmath>
 
+
 // Constructeur
 
 ZoneDessin::ZoneDessin(bool oriente, QWidget* parent)
@@ -343,92 +344,91 @@ void ZoneDessin::paintEvent(QPaintEvent*)
 
 void ZoneDessin::dessinerSommet(QPainter& p, const SommetVisuel& s, bool surbrillance) const
 {
+    bool dansChemin = std::find(m_sommetsEnSurbrillance.begin(),
+        m_sommetsEnSurbrillance.end(), s.id) != m_sommetsEnSurbrillance.end();
+
     QColor couleurBord, couleurFond, couleurTexte;
 
-    if (s.estStation) {
-        couleurBord  = surbrillance ? QColor(255, 200,  50) : QColor(255, 160,  50);
-        couleurFond  = surbrillance ? QColor( 80,  40,   0) : QColor( 60,  30,   0);
-        couleurTexte = surbrillance ? QColor(255, 200,  50) : QColor(255, 210, 150);
-    } else {
-        couleurBord  = surbrillance ? QColor(241,  15,  15) : QColor(250, 137, 137);
-        couleurFond  = surbrillance ? QColor( 61,   0,   0) : QColor( 46,  30,  30);
-        couleurTexte = surbrillance ? QColor(241,  15,  15) : QColor(244, 205, 205);
+    if (dansChemin) {
+        couleurBord = QColor(50, 255, 100);
+        couleurFond = QColor(0, 60, 20);
+        couleurTexte = QColor(50, 255, 100);
+    }
+    else if (s.estStation) {
+        couleurBord = surbrillance ? QColor(255, 200, 50) : QColor(255, 160, 50);
+        couleurFond = surbrillance ? QColor(80, 40, 0) : QColor(60, 30, 0);
+        couleurTexte = surbrillance ? QColor(255, 200, 50) : QColor(255, 210, 150);
+    }
+    else {
+        couleurBord = surbrillance ? QColor(241, 15, 15) : QColor(250, 137, 137);
+        couleurFond = surbrillance ? QColor(61, 0, 0) : QColor(46, 30, 30);
+        couleurTexte = surbrillance ? QColor(241, 15, 15) : QColor(244, 205, 205);
     }
 
     p.setPen(QPen(couleurBord, surbrillance ? 3 : 2));
     p.setBrush(couleurFond);
     p.drawEllipse(s.pos, RAYON, RAYON);
 
-    // ID au centre
     p.setPen(couleurTexte);
     p.setFont(QFont("Courier New", 9, QFont::Bold));
     QRect rectId(s.pos.x() - RAYON, s.pos.y() - RAYON, RAYON * 2, RAYON * 2);
     p.drawText(rectId, Qt::AlignCenter, QString::number(s.id));
 
-    // Nom en dessous
     p.setFont(QFont("Courier New", 8));
     p.setPen(QColor(200, 166, 166));
     QRect rectNom(s.pos.x() - 50, s.pos.y() + RAYON + 2, 100, 16);
     p.drawText(rectNom, Qt::AlignCenter, s.nom);
-
-    if (s.estStation) {
-        p.setPen(QColor(255, 160, 50));
-        p.setFont(QFont("Courier New", 7));
-        QRect rectIcon(s.pos.x() - 50, s.pos.y() + RAYON + 14, 100, 12);
-    }
 }
-
-void ZoneDessin::dessinerArc(QPainter& p, const ArcVisuel& a,bool /*surbrillance*/) const
+void ZoneDessin::dessinerArc(QPainter& p, const ArcVisuel& a, bool /*surbrillance*/) const
 {
+    bool dansChemin = false;
+    for (const auto& arc : m_arcsColories) {
+        if ((arc.first == a.idDepart && arc.second == a.idArrivee) ||
+            (!m_oriente && arc.first == a.idArrivee && arc.second == a.idDepart)) {
+            dansChemin = true;
+            break;
+        }
+    }
+
     bool trouve = false;
     QPoint dep, arr;
     for (const SommetVisuel& s : m_sommets) {
         if (s.id == a.idDepart) { dep = s.pos; trouve = true; }
         if (s.id == a.idArrivee) arr = s.pos;
     }
-    if (!trouve) {
-        // C'est ici que ça coince !
-        qDebug() << "Arc non dessiné : Sommet de départ ID" << a.idDepart << "introuvable dans m_sommets";
-        return;
-    }
+    if (!trouve) return;
 
-    p.setPen(QPen(QColor(227, 192, 161), 2));
+    QColor couleurArc = dansChemin ? QColor(50, 255, 100) : QColor(227, 192, 161);
+    int epaisseur = dansChemin ? 4 : 2;
+
+    p.setPen(QPen(couleurArc, epaisseur));
     p.setBrush(Qt::NoBrush);
 
-    if (dep == arr)
-    {
+    if (dep == arr) {
         int r = 20;
         QRect loopRect(dep.x() - r, dep.y() - 2 * r, 2 * r, 2 * r);
         p.drawEllipse(loopRect);
-
-        if (m_oriente)
-        {
-            QPoint ptAvant(dep.x() + r+2, dep.y()-21);
-            QPoint ptFin(dep.x() + r-3, dep.y()-11);
+        if (m_oriente) {
+            QPoint ptAvant(dep.x() + r + 2, dep.y() - 21);
+            QPoint ptFin(dep.x() + r - 3, dep.y() - 11);
             dessinerFleche(p, ptAvant, ptFin);
         }
-
         p.setPen(QColor(243, 139, 168));
         p.setFont(QFont("Courier New", 8, QFont::Bold));
-        p.drawText(dep.x() + r, dep.y() - r-10, QString::number(a.poids));
+        p.drawText(dep.x() + r, dep.y() - r - 10, QString::number(a.poids));
     }
-    else
-    {
+    else {
         QPoint ptDep = pointSurBord(dep, arr);
         QPoint ptArr = pointSurBord(arr, dep);
-
         p.drawLine(ptDep, ptArr);
-
         if (m_oriente)
             dessinerFleche(p, ptDep, ptArr);
-
         QPoint milieu((ptDep.x() + ptArr.x()) / 2, (ptDep.y() + ptArr.y()) / 2);
         p.setPen(QColor(243, 139, 168));
         p.setFont(QFont("Courier New", 8, QFont::Bold));
         p.drawText(milieu.x() + 4, milieu.y() - 4, QString::number(a.poids));
     }
 }
-
 
 void ZoneDessin::dessinerFleche(QPainter& p, QPoint dep, QPoint arr) const
 {
@@ -519,31 +519,36 @@ int ZoneDessin::arcSous(const QPoint& pos) const
 }
 //chargement dessin depuis un graphe 
 void ZoneDessin::chargerDepuisGraphe(const Graphe& g) {
+    // Sauvegarder les positions par nom
+    std::map<std::string, QPoint> positionsParNom;
+    for (const SommetVisuel& sv : m_sommets)
+        positionsParNom[sv.nom.toStdString()] = sv.pos;
+
     m_sommets.clear();
     m_arcs.clear();
     m_prochainId = 1;
 
-    // Convertir les sommets du Graphe en SommetVisuel
     for (const Sommet& s : g.retournerSommets()) {
         SommetVisuel sv;
         sv.id = s.retournerId();
         sv.nom = QString::fromStdString(s.retournerDonnees());
 
-        double angle = 2.0 * 3.14159 * (sv.id - 1) / g.retournerSommets().size();
-        sv.pos = QPoint(300 + 150 * std::cos(angle), 200 + 100 * std::sin(angle));
+        // Garder la position par nom
+        if (positionsParNom.count(s.retournerDonnees()))
+            sv.pos = positionsParNom[s.retournerDonnees()];
+        else {
+            double angle = 2.0 * 3.14159 * (sv.id - 1) / g.retournerSommets().size();
+            sv.pos = QPoint(300 + 150 * std::cos(angle), 200 + 100 * std::sin(angle));
+        }
 
         m_sommets.push_back(sv);
         if (sv.id >= m_prochainId) m_prochainId = sv.id + 1;
     }
 
-    // Convertir les arcs du Graphe en ArcVisuel
     for (const Arc& a : g.retournerArcs()) {
         int idDep = a.retournerSommetDepart().retournerId();
         int idArr = a.retournerSommetArrivee().retournerId();
-
-        // Si non-orienté, ignorer l'arc inverse pour ne pas afficher en double
         if (!g.estOriente() && idDep > idArr) continue;
-
         m_arcs.push_back({ idDep, idArr, a.retournerPoids() });
     }
 
@@ -600,5 +605,20 @@ void ZoneDessin::effacerSommetParId(int id) {
         m_arcs.end());
 
     update(); // Rafraîchir l'affichage
+}
+void ZoneDessin::setSommetsEnSurbrillance(const std::vector<int>& ids) {
+    m_sommetsEnSurbrillance = ids;
+    update();
+}
+
+void ZoneDessin::setArcsColories(const std::vector<std::pair<int, int>>& arcs) {
+    m_arcsColories = arcs;
+    update();
+}
+
+void ZoneDessin::reinitialiserCouleurs() {
+    m_sommetsEnSurbrillance.clear();
+    m_arcsColories.clear();
+    update();
 }
 int ZoneDessin::nbArcs() const { return static_cast<int>(m_arcs.size()); }

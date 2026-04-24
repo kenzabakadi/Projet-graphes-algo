@@ -68,6 +68,7 @@ void SaisieFichier::saisir(Graphe& graphe) {
     std::string orientation;
     std::getline(fichier, orientation);
     bool oriente = (orientation == "o");
+    graphe = Graphe(oriente);// cree un nouveau graphe avec orientation 
 
     int n;
     fichier >> n;
