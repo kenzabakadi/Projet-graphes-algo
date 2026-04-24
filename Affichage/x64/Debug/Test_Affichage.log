@@ -1,10 +1,16 @@
 ﻿   Qt/MSBuild: 3.5.0.0
   Reading Qt configuration (C:/Qt/6.10.3/msvc2022_64/bin/qmake)
    Qt: 6.10.3
-  InterfaceGraphique.cpp
-C:\Users\belka\Desktop\Projet_Graphe_algo\Projet-graphes-algo\ResultatAlgo.h(1,1): warning C4828: Le fichier contient un caractère qui débute à l'offset 0xf1 et qui est non conforme dans le jeu de caractères source actuel (page de codes 65001).
-  (compiler le fichier source 'InterfaceGraphique.cpp')
-  
-C:\Users\belka\Desktop\Projet_Graphe_algo\Projet-graphes-algo\InterfaceGraphique.cpp(224,41): warning C4267: 'argument' : conversion de 'size_t' en 'int', perte possible de données
-C:\Users\belka\Desktop\Projet_Graphe_algo\Projet-graphes-algo\InterfaceGraphique.cpp(326,70): warning C4267: 'argument' : conversion de 'size_t' en 'int', perte possible de données
+  graphe.cpp
+C:\Users\belka\Desktop\Projet_Graphe_algo\Projet-graphes-algo\graphe.cpp(91,11): warning C4267: 'initialisation' : conversion de 'size_t' en 'int', perte possible de données
+C:\Users\belka\Desktop\Projet_Graphe_algo\Projet-graphes-algo\graphe.cpp(92,11): warning C4267: 'initialisation' : conversion de 'size_t' en 'int', perte possible de données
+C:\Users\belka\Desktop\Projet_Graphe_algo\Projet-graphes-algo\graphe.cpp(107,11): warning C4267: 'initialisation' : conversion de 'size_t' en 'int', perte possible de données
+C:\Users\belka\Desktop\Projet_Graphe_algo\Projet-graphes-algo\graphe.cpp(133,23): warning C4267: '=' : conversion de 'size_t' en '_Ty', perte possible de données
+C:\Users\belka\Desktop\Projet_Graphe_algo\Projet-graphes-algo\graphe.cpp(133,23): warning C4267:         with
+C:\Users\belka\Desktop\Projet_Graphe_algo\Projet-graphes-algo\graphe.cpp(133,23): warning C4267:         [
+C:\Users\belka\Desktop\Projet_Graphe_algo\Projet-graphes-algo\graphe.cpp(133,23): warning C4267:             _Ty=int
+C:\Users\belka\Desktop\Projet_Graphe_algo\Projet-graphes-algo\graphe.cpp(133,23): warning C4267:         ]
+C:\Users\belka\Desktop\Projet_Graphe_algo\Projet-graphes-algo\graphe.cpp(140,11): warning C4267: 'initialisation' : conversion de 'size_t' en 'int', perte possible de données
+C:\Users\belka\Desktop\Projet_Graphe_algo\Projet-graphes-algo\graphe.cpp(170,11): warning C4267: 'initialisation' : conversion de 'size_t' en 'int', perte possible de données
+C:\Users\belka\Desktop\Projet_Graphe_algo\Projet-graphes-algo\graphe.cpp(171,11): warning C4267: 'initialisation' : conversion de 'size_t' en 'int', perte possible de données
   Test_Affichage.vcxproj -> C:\Users\belka\Desktop\Projet_Graphe_algo\Projet-graphes-algo\x64\Debug\Affichage.exe

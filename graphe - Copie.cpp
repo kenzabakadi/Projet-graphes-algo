@@ -1,5 +1,4 @@
 #include "graphe.h"
-#include<algorithm>
 
 Graphe::Graphe(bool oriente) : d_estOriente{oriente} {}
 
@@ -59,24 +58,13 @@ void Graphe::ajouterArc(const Arc& a) {
     }
 }
 
-#include <algorithm> // Nécessaire pour std::remove_if
-
-void Graphe::supprimerArc(const Arc& a) {
-    auto nouveau_fin = std::remove_if(arcs.begin(), arcs.end(), [&](const Arc& arc_courant) {
-        // Condition 1 : L'arc correspond exactement (direct)
-        bool direct = (arc_courant == a);
-
-        // Condition 2 : L'arc correspond à l'inverse (si non orienté)
-        bool inverse = (!estOriente() &&
-            arc_courant.retournerSommetDepart() == a.retournerSommetArrivee() &&
-            arc_courant.retournerSommetArrivee() == a.retournerSommetDepart() &&
-            arc_courant.retournerPoids() == a.retournerPoids());
-
-        return direct || inverse;
-        });
-
-    // On efface réellement les éléments de la fin vers le début
-    arcs.erase(nouveau_fin, arcs.end());
+void Graphe::supprimerArc(const Arc& a) { 
+    for (auto it = arcs.begin(); it != arcs.end(); ++it) {
+        if (*it == a) { // Surcharge de l'opérateur d'égalité entre les arcs
+            arcs.erase(it);
+            break;
+        }
+    }
 }
 
 vector<Sommet> Graphe::retournerSommets() const {
