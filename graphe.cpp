@@ -59,9 +59,7 @@ void Graphe::ajouterArc(const Arc& a) {
     }
 }
 
-#include <algorithm> // Nécessaire pour std::remove_if
-
-void Graphe::supprimerArc(const Arc& a) {
+void Graphe::supprimerArc(const Arc& a) {// envlever arc inverse dans graphe non orienté
     auto nouveau_fin = std::remove_if(arcs.begin(), arcs.end(), [&](const Arc& arc_courant) {
         // Condition 1 : L'arc correspond exactement (direct)
         bool direct = (arc_courant == a);
