@@ -73,25 +73,46 @@ bool ZoneDessin::confirmer(Graphe& graphe) const
 {
     if (m_sommets.empty()) {
         QMessageBox::warning(const_cast<ZoneDessin*>(this),
-                             "Graphe vide", "Aucun sommet dessine.");
+            "Graphe vide", "Aucun sommet dessiné.");
         return false;
     }
 
-    for (const SommetVisuel& sv : m_sommets)
-        graphe.ajouterSommet(Sommet(sv.id, sv.nom.toStdString()));
+    // 1. Ajout des sommets avec données concaténées
+    for (const SommetVisuel& sv : m_sommets) {
+        QString infoCompletes = sv.nom;
 
-    std::vector<Sommet> listeSommets;
-    for (const SommetVisuel& sv : m_sommets)
-        listeSommets.emplace_back(sv.id, sv.nom.toStdString());
+        // Si c'est une station, on ajoute les détails à la chaîne de données
+        if (sv.estStation) {
+            infoCompletes += QString(" | Addr: %1 | SP95: %2€ | Gazole: %3€")
+                .arg(sv.adresse)
+                .arg(sv.prixSP95 >= 0 ? QString::number(sv.prixSP95) : "Non dispo")
+                .arg(sv.prixGazole >= 0 ? QString::number(sv.prixGazole) : "Non dispo");
+        }
+
+        // On crée le sommet avec ces données complètes
+        graphe.ajouterSommet(Sommet(sv.id, infoCompletes.toStdString()));
+    }
+
+    // 2. Préparation pour trouver les sommets lors de l'ajout des arcs
+    // On récupère la liste des sommets fraîchement ajoutés au graphe
+    std::vector<Sommet> listeSommets = graphe.retournerSommets();
 
     auto trouver = [&](int id) -> Sommet {
         for (const Sommet& s : listeSommets)
             if (s.retournerId() == id) return s;
-        return Sommet();
-    };
+        return Sommet(); // Retourne un sommet par défaut si non trouvé
+        };
 
-    for (const ArcVisuel& av : m_arcs)
-        graphe.ajouterArc(Arc(trouver(av.idDepart), trouver(av.idArrivee), av.poids));
+    // 3. Ajout des arcs
+    for (const ArcVisuel& av : m_arcs) {
+        Sommet sDep = trouver(av.idDepart);
+        Sommet sArr = trouver(av.idArrivee);
+
+        // On ne crée l'arc que si les deux sommets existent
+        if (sDep.retournerId() != -1 && sArr.retournerId() != -1) {
+            graphe.ajouterArc(Arc(sDep, sArr, av.poids));
+        }
+    }
 
     return true;
 }
@@ -519,21 +540,26 @@ int ZoneDessin::arcSous(const QPoint& pos) const
 }
 //chargement dessin depuis un graphe 
 void ZoneDessin::chargerDepuisGraphe(const Graphe& g) {
-    // Sauvegarder les positions par nom
+    // 1. Aligner l'orientation
+    m_oriente = g.estOriente();
+
+    // 2. SAUVEGARDER LES POSITIONS AVANT DE VIDER
     std::map<std::string, QPoint> positionsParNom;
     for (const SommetVisuel& sv : m_sommets)
         positionsParNom[sv.nom.toStdString()] = sv.pos;
 
+    // 3. MAINTENANT on peut vider
     m_sommets.clear();
     m_arcs.clear();
     m_prochainId = 1;
 
+    // 4. On remplit avec les données du graphe 'g'
     for (const Sommet& s : g.retournerSommets()) {
         SommetVisuel sv;
         sv.id = s.retournerId();
         sv.nom = QString::fromStdString(s.retournerDonnees());
 
-        // Garder la position par nom
+        // 5. On récupère la position sauvée à l'étape 2
         if (positionsParNom.count(s.retournerDonnees()))
             sv.pos = positionsParNom[s.retournerDonnees()];
         else {
@@ -545,6 +571,7 @@ void ZoneDessin::chargerDepuisGraphe(const Graphe& g) {
         if (sv.id >= m_prochainId) m_prochainId = sv.id + 1;
     }
 
+    // 6. Charger les arcs
     for (const Arc& a : g.retournerArcs()) {
         int idDep = a.retournerSommetDepart().retournerId();
         int idArr = a.retournerSommetArrivee().retournerId();

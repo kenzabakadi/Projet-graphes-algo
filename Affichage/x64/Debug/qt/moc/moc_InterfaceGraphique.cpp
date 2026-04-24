@@ -62,7 +62,8 @@ template <> constexpr inline auto InterfaceGraphique::qt_create_metaobjectdata<q
         "idSommet",
         "on_btnChargerFichier_clicked",
         "on_btnSauvegarderFichier_clicked",
-        "on_btnSaisieClavier_clicked"
+        "on_btnSaisieClavier_clicked",
+        "on_btnSaisieSouris_clicked"
     };
 
     QtMocHelpers::UintData qt_methods {
@@ -98,6 +99,8 @@ template <> constexpr inline auto InterfaceGraphique::qt_create_metaobjectdata<q
         QtMocHelpers::SlotData<void()>(22, 2, QMC::AccessPrivate, QMetaType::Void),
         // Slot 'on_btnSaisieClavier_clicked'
         QtMocHelpers::SlotData<void()>(23, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'on_btnSaisieSouris_clicked'
+        QtMocHelpers::SlotData<void()>(24, 2, QMC::AccessPrivate, QMetaType::Void),
     };
     QtMocHelpers::UintData qt_properties {
     };
@@ -133,6 +136,7 @@ void InterfaceGraphique::qt_static_metacall(QObject *_o, QMetaObject::Call _c, i
         case 9: _t->on_btnChargerFichier_clicked(); break;
         case 10: _t->on_btnSauvegarderFichier_clicked(); break;
         case 11: _t->on_btnSaisieClavier_clicked(); break;
+        case 12: _t->on_btnSaisieSouris_clicked(); break;
         default: ;
         }
     }
@@ -157,14 +161,14 @@ int InterfaceGraphique::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 12)
+        if (_id < 13)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 12;
+        _id -= 13;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 12)
+        if (_id < 13)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 12;
+        _id -= 13;
     }
     return _id;
 }

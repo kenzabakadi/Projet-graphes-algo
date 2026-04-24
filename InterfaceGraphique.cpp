@@ -17,6 +17,7 @@
 #include <QFileDialog>
 #include "saisieclavier.h"
 #include"FenetreResultat.h"
+#include"saisieSouris.h"
 
 InterfaceGraphique::InterfaceGraphique(Graphe& graphe, QWidget* parent)
     : QMainWindow(parent), ui(new Ui::FenetreGraphe), m_graphe(graphe)
@@ -51,8 +52,10 @@ InterfaceGraphique::InterfaceGraphique(Graphe& graphe, QWidget* parent)
     connect(m_zone, &ZoneDessin::demanderSuppressionSommetSignal, this, &InterfaceGraphique::surDemandeSuppressionSommet);
     //connect(ui->btnLancerAlgorithme, &QPushButton::clicked, this, &InterfaceGraphique::on_btnLancerAlgorithme_clicked);
     //connect(ui->btnChargerFichier, &QPushButton::clicked, this, &InterfaceGraphique::on_btnChargerFichier_clicked);
-    connect(ui->btnSauvgarderFichier, &QPushButton::clicked, this, &InterfaceGraphique::on_btnSauvegarderFichier_clicked);
+    //connect(ui->btnSauvgarderFichier, &QPushButton::clicked, this, &InterfaceGraphique::on_btnSauvegarderFichier_clicked);
     //connect(ui->btnSaisieClavier, &QPushButton::clicked, this, &InterfaceGraphique::on_btnSaisieClavier_clicked);
+    // Dans le constructeur de InterfaceGraphique
+    //connect(ui->btnSaisieSouris, &QPushButton::clicked, this, &InterfaceGraphique::on_btnSaisieSouris_clicked);
 }
 
 
@@ -571,12 +574,39 @@ void InterfaceGraphique::on_btnSaisieClavier_clicked() {
     synchroniserComboBoxSommets();
     mettreAJourDonneesBrutes();
 }
+void InterfaceGraphique::on_btnSaisieSouris_clicked() {
+    // 1. Vider le graphe actuel pour repartir de zéro
+    // On recrée un objet Graphe vide, en conservant l'orientation actuelle
+    m_graphe = Graphe(m_graphe.estOriente());
+
+    // 2. On crée l'outil
+    SaisieSouris outilSaisie(this);
+
+    // 3. On lance la saisie. 
+    // L'outil va remplir le nouveau m_graphe vide via son bouton "Valider"
+    outilSaisie.saisir(m_graphe);
+
+    // 4. Mettre à jour la vue principale (ZoneDessin) avec le nouveau graphe
+    m_zone->setOriente(m_graphe.estOriente());
+    m_zone->chargerDepuisGraphe(m_graphe);
+
+    // 5. Rafraîchir les listes
+    synchroniserComboBoxSommets();
+    mettreAJourDonneesBrutes();
+}
 void InterfaceGraphique::mettreAJourDonneesBrutes() {
     // 1. Mise à jour des Sommets
-    ui->textSommets->clear(); // Vide la liste
+    ui->textSommets->clear();
+
     for (const auto& s : m_graphe.retournerSommets()) {
-        QString ligne = QString("ID %1 : %2").arg(s.retournerId()).arg(QString::fromStdString(s.retournerDonnees()));
-        ui->textSommets->addItem(ligne); // Ajoute un élément
+        // Tu récupères l'ID
+        int id = s.retournerId();
+        QString donnees = QString::fromStdString(s.retournerDonnees());
+
+        // On affiche les deux dans la liste
+        QString ligne = QString("ID %1 : %2").arg(id).arg(donnees);
+
+        ui->textSommets->addItem(ligne);
     }
 
     // 2. Mise à jour des Arcs

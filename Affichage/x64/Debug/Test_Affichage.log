@@ -1,16 +1,5 @@
 ﻿   Qt/MSBuild: 3.5.0.0
   Reading Qt configuration (C:/Qt/6.10.3/msvc2022_64/bin/qmake)
    Qt: 6.10.3
-  graphe.cpp
-C:\Users\belka\Desktop\Projet_Graphe_algo\Projet-graphes-algo\graphe.cpp(91,11): warning C4267: 'initialisation' : conversion de 'size_t' en 'int', perte possible de données
-C:\Users\belka\Desktop\Projet_Graphe_algo\Projet-graphes-algo\graphe.cpp(92,11): warning C4267: 'initialisation' : conversion de 'size_t' en 'int', perte possible de données
-C:\Users\belka\Desktop\Projet_Graphe_algo\Projet-graphes-algo\graphe.cpp(107,11): warning C4267: 'initialisation' : conversion de 'size_t' en 'int', perte possible de données
-C:\Users\belka\Desktop\Projet_Graphe_algo\Projet-graphes-algo\graphe.cpp(133,23): warning C4267: '=' : conversion de 'size_t' en '_Ty', perte possible de données
-C:\Users\belka\Desktop\Projet_Graphe_algo\Projet-graphes-algo\graphe.cpp(133,23): warning C4267:         with
-C:\Users\belka\Desktop\Projet_Graphe_algo\Projet-graphes-algo\graphe.cpp(133,23): warning C4267:         [
-C:\Users\belka\Desktop\Projet_Graphe_algo\Projet-graphes-algo\graphe.cpp(133,23): warning C4267:             _Ty=int
-C:\Users\belka\Desktop\Projet_Graphe_algo\Projet-graphes-algo\graphe.cpp(133,23): warning C4267:         ]
-C:\Users\belka\Desktop\Projet_Graphe_algo\Projet-graphes-algo\graphe.cpp(140,11): warning C4267: 'initialisation' : conversion de 'size_t' en 'int', perte possible de données
-C:\Users\belka\Desktop\Projet_Graphe_algo\Projet-graphes-algo\graphe.cpp(170,11): warning C4267: 'initialisation' : conversion de 'size_t' en 'int', perte possible de données
-C:\Users\belka\Desktop\Projet_Graphe_algo\Projet-graphes-algo\graphe.cpp(171,11): warning C4267: 'initialisation' : conversion de 'size_t' en 'int', perte possible de données
+  zoneDessin.cpp
   Test_Affichage.vcxproj -> C:\Users\belka\Desktop\Projet_Graphe_algo\Projet-graphes-algo\x64\Debug\Affichage.exe

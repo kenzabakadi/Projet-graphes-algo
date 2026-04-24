@@ -48,6 +48,7 @@ public:
     QPushButton *btnSaisieClavier;
     QPushButton *btnChargerFichier;
     QPushButton *btnSauvgarderFichier;
+    QPushButton *btnSaisieSouris;
     QSpacerItem *espaceVertical;
     QTabWidget *ongletsAffichage;
     QWidget *ongletGraphique;
@@ -64,7 +65,7 @@ public:
     {
         if (FenetreGraphe->objectName().isEmpty())
             FenetreGraphe->setObjectName("FenetreGraphe");
-        FenetreGraphe->resize(850, 595);
+        FenetreGraphe->resize(1054, 595);
         centralwidget = new QWidget(FenetreGraphe);
         centralwidget->setObjectName("centralwidget");
         horizontalLayout = new QHBoxLayout(centralwidget);
@@ -159,6 +160,11 @@ public:
 
         verticalLayout->addWidget(btnSauvgarderFichier);
 
+        btnSaisieSouris = new QPushButton(frameControles);
+        btnSaisieSouris->setObjectName("btnSaisieSouris");
+
+        verticalLayout->addWidget(btnSaisieSouris);
+
         espaceVertical = new QSpacerItem(20, 40, QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Expanding);
 
         verticalLayout->addItem(espaceVertical);
@@ -210,7 +216,7 @@ public:
 
         retranslateUi(FenetreGraphe);
 
-        ongletsAffichage->setCurrentIndex(1);
+        ongletsAffichage->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(FenetreGraphe);
@@ -240,6 +246,7 @@ public:
         btnSaisieClavier->setText(QCoreApplication::translate("FenetreGraphe", "Saisie clavier", nullptr));
         btnChargerFichier->setText(QCoreApplication::translate("FenetreGraphe", "Charger depuis fichier", nullptr));
         btnSauvgarderFichier->setText(QCoreApplication::translate("FenetreGraphe", "Sauvegarder fichier", nullptr));
+        btnSaisieSouris->setText(QCoreApplication::translate("FenetreGraphe", "SaisieSouris", nullptr));
         ongletsAffichage->setTabText(ongletsAffichage->indexOf(ongletGraphique), QCoreApplication::translate("FenetreGraphe", "Vue Graphique Visuelle", nullptr));
         labelListeSommets->setText(QCoreApplication::translate("FenetreGraphe", "Liste des sommets existants :", nullptr));
         labelListeArcs->setText(QCoreApplication::translate("FenetreGraphe", "Liste des arcs existants :", nullptr));

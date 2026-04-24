@@ -37,6 +37,7 @@ private slots:
     void on_btnChargerFichier_clicked();
     void on_btnSauvegarderFichier_clicked();
     void on_btnSaisieClavier_clicked();
+    void on_btnSaisieSouris_clicked();
 
 
 private:
