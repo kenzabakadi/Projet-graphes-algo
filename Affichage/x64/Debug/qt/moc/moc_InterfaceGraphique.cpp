@@ -44,6 +44,7 @@ template <> constexpr inline auto InterfaceGraphique::qt_create_metaobjectdata<q
         "",
         "on_btnModifierArc_clicked",
         "on_btnAjouterArc_clicked",
+        "on_btnLancerAlgorithme_clicked",
         "surNouveauSommetAjoute",
         "id",
         "nom",
@@ -58,7 +59,10 @@ template <> constexpr inline auto InterfaceGraphique::qt_create_metaobjectdata<q
         "ancienPoids",
         "nouveauPoids",
         "surDemandeSuppressionSommet",
-        "idSommet"
+        "idSommet",
+        "on_btnChargerFichier_clicked",
+        "on_btnSauvegarderFichier_clicked",
+        "on_btnSaisieClavier_clicked"
     };
 
     QtMocHelpers::UintData qt_methods {
@@ -68,24 +72,32 @@ template <> constexpr inline auto InterfaceGraphique::qt_create_metaobjectdata<q
         QtMocHelpers::SlotData<void()>(3, 2, QMC::AccessPrivate, QMetaType::Void),
         // Slot 'on_btnAjouterArc_clicked'
         QtMocHelpers::SlotData<void()>(4, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'on_btnLancerAlgorithme_clicked'
+        QtMocHelpers::SlotData<void()>(5, 2, QMC::AccessPrivate, QMetaType::Void),
         // Slot 'surNouveauSommetAjoute'
-        QtMocHelpers::SlotData<void(int, QString, QPoint)>(5, 2, QMC::AccessPrivate, QMetaType::Void, {{
-            { QMetaType::Int, 6 }, { QMetaType::QString, 7 }, { 0x80000000 | 8, 9 },
+        QtMocHelpers::SlotData<void(int, QString, QPoint)>(6, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { QMetaType::Int, 7 }, { QMetaType::QString, 8 }, { 0x80000000 | 9, 10 },
         }}),
         // Slot 'surArcSelectionne'
-        QtMocHelpers::SlotData<void(int)>(10, 2, QMC::AccessPrivate, QMetaType::Void, {{
-            { QMetaType::Int, 11 },
+        QtMocHelpers::SlotData<void(int)>(11, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { QMetaType::Int, 12 },
         }}),
         // Slot 'surArcDeselectionne'
-        QtMocHelpers::SlotData<void()>(12, 2, QMC::AccessPrivate, QMetaType::Void),
+        QtMocHelpers::SlotData<void()>(13, 2, QMC::AccessPrivate, QMetaType::Void),
         // Slot 'surArcModifie'
-        QtMocHelpers::SlotData<void(int, int, int, int)>(13, 2, QMC::AccessPrivate, QMetaType::Void, {{
-            { QMetaType::Int, 14 }, { QMetaType::Int, 15 }, { QMetaType::Int, 16 }, { QMetaType::Int, 17 },
+        QtMocHelpers::SlotData<void(int, int, int, int)>(14, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { QMetaType::Int, 15 }, { QMetaType::Int, 16 }, { QMetaType::Int, 17 }, { QMetaType::Int, 18 },
         }}),
         // Slot 'surDemandeSuppressionSommet'
-        QtMocHelpers::SlotData<void(int)>(18, 2, QMC::AccessPrivate, QMetaType::Void, {{
-            { QMetaType::Int, 19 },
+        QtMocHelpers::SlotData<void(int)>(19, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { QMetaType::Int, 20 },
         }}),
+        // Slot 'on_btnChargerFichier_clicked'
+        QtMocHelpers::SlotData<void()>(21, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'on_btnSauvegarderFichier_clicked'
+        QtMocHelpers::SlotData<void()>(22, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'on_btnSaisieClavier_clicked'
+        QtMocHelpers::SlotData<void()>(23, 2, QMC::AccessPrivate, QMetaType::Void),
     };
     QtMocHelpers::UintData qt_properties {
     };
@@ -112,11 +124,15 @@ void InterfaceGraphique::qt_static_metacall(QObject *_o, QMetaObject::Call _c, i
         case 0: _t->on_btnSupprimerArc_clicked(); break;
         case 1: _t->on_btnModifierArc_clicked(); break;
         case 2: _t->on_btnAjouterArc_clicked(); break;
-        case 3: _t->surNouveauSommetAjoute((*reinterpret_cast<std::add_pointer_t<int>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<QString>>(_a[2])),(*reinterpret_cast<std::add_pointer_t<QPoint>>(_a[3]))); break;
-        case 4: _t->surArcSelectionne((*reinterpret_cast<std::add_pointer_t<int>>(_a[1]))); break;
-        case 5: _t->surArcDeselectionne(); break;
-        case 6: _t->surArcModifie((*reinterpret_cast<std::add_pointer_t<int>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<int>>(_a[2])),(*reinterpret_cast<std::add_pointer_t<int>>(_a[3])),(*reinterpret_cast<std::add_pointer_t<int>>(_a[4]))); break;
-        case 7: _t->surDemandeSuppressionSommet((*reinterpret_cast<std::add_pointer_t<int>>(_a[1]))); break;
+        case 3: _t->on_btnLancerAlgorithme_clicked(); break;
+        case 4: _t->surNouveauSommetAjoute((*reinterpret_cast<std::add_pointer_t<int>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<QString>>(_a[2])),(*reinterpret_cast<std::add_pointer_t<QPoint>>(_a[3]))); break;
+        case 5: _t->surArcSelectionne((*reinterpret_cast<std::add_pointer_t<int>>(_a[1]))); break;
+        case 6: _t->surArcDeselectionne(); break;
+        case 7: _t->surArcModifie((*reinterpret_cast<std::add_pointer_t<int>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<int>>(_a[2])),(*reinterpret_cast<std::add_pointer_t<int>>(_a[3])),(*reinterpret_cast<std::add_pointer_t<int>>(_a[4]))); break;
+        case 8: _t->surDemandeSuppressionSommet((*reinterpret_cast<std::add_pointer_t<int>>(_a[1]))); break;
+        case 9: _t->on_btnChargerFichier_clicked(); break;
+        case 10: _t->on_btnSauvegarderFichier_clicked(); break;
+        case 11: _t->on_btnSaisieClavier_clicked(); break;
         default: ;
         }
     }
@@ -141,14 +157,14 @@ int InterfaceGraphique::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 8)
+        if (_id < 12)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 8;
+        _id -= 12;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 8)
+        if (_id < 12)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 8;
+        _id -= 12;
     }
     return _id;
 }

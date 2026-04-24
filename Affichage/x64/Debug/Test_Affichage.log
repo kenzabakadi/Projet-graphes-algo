@@ -1,5 +1,10 @@
 ﻿   Qt/MSBuild: 3.5.0.0
   Reading Qt configuration (C:/Qt/6.10.3/msvc2022_64/bin/qmake)
    Qt: 6.10.3
-  zoneDessin.cpp
+  InterfaceGraphique.cpp
+C:\Users\belka\Desktop\Projet_Graphe_algo\Projet-graphes-algo\ResultatAlgo.h(1,1): warning C4828: Le fichier contient un caractère qui débute à l'offset 0xf1 et qui est non conforme dans le jeu de caractères source actuel (page de codes 65001).
+  (compiler le fichier source 'InterfaceGraphique.cpp')
+  
+C:\Users\belka\Desktop\Projet_Graphe_algo\Projet-graphes-algo\InterfaceGraphique.cpp(224,41): warning C4267: 'argument' : conversion de 'size_t' en 'int', perte possible de données
+C:\Users\belka\Desktop\Projet_Graphe_algo\Projet-graphes-algo\InterfaceGraphique.cpp(326,70): warning C4267: 'argument' : conversion de 'size_t' en 'int', perte possible de données
   Test_Affichage.vcxproj -> C:\Users\belka\Desktop\Projet_Graphe_algo\Projet-graphes-algo\x64\Debug\Affichage.exe

@@ -146,9 +146,18 @@
     <ClCompile Include="AfficheurConsole.cpp" />
     <ClCompile Include="AfficheurFichier.cpp" />
     <ClCompile Include="AfficheurInterface.cpp" />
+    <ClCompile Include="algorithme.cpp" />
+    <ClCompile Include="dantzig.cpp" />
     <ClCompile Include="DialogueSaisieClavier.cpp" />
     <ClCompile Include="arc.cpp" />
+    <ClCompile Include="dijkstra.cpp" />
+    <ClCompile Include="distance.cpp" />
+    <ClCompile Include="FenetreResultat.cpp" />
     <ClCompile Include="graphe.cpp" />
+    <ClCompile Include="kruskal.cpp" />
+    <ClCompile Include="ordonnancement.cpp" />
+    <ClCompile Include="prufer.cpp" />
+    <ClCompile Include="rang.cpp" />
     <ClCompile Include="sommet.cpp" />
     <ClCompile Include="stationessence.cpp" />
     <ClCompile Include="InterfaceGraphique.cpp" />
@@ -157,6 +166,7 @@
     <ClCompile Include="SaisieClavier.cpp" />
     <ClCompile Include="saisieFichier.cpp" />
     <ClCompile Include="saisieSouris.cpp" />
+    <ClCompile Include="tarjan.cpp" />
     <ClCompile Include="zoneDessin.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -164,9 +174,19 @@
     <ClInclude Include="AfficheurConsole.h" />
     <ClInclude Include="AfficheurFichier.h" />
     <ClInclude Include="AfficheurInterface.h" />
+    <QtMoc Include="FenetreResultat.h" />
+    <ClInclude Include="tarjan.h" />
     <QtMoc Include="DialogueSaisieClavier.h" />
+    <ClInclude Include="algorithme.h" />
     <ClInclude Include="arc.h" />
+    <ClInclude Include="dantzig.h" />
+    <ClInclude Include="dijkstra.h" />
+    <ClInclude Include="distance.h" />
     <ClInclude Include="graphe.h" />
+    <ClInclude Include="kruskal.h" />
+    <ClInclude Include="ordonnancement.h" />
+    <ClInclude Include="prufer.h" />
+    <ClInclude Include="rang.h" />
     <ClInclude Include="sommet.h" />
     <ClInclude Include="stationessence.h" />
     <QtMoc Include="InterfaceGraphique.h" />

@@ -7,20 +7,39 @@ void Graphe::ajouterSommet(const Sommet& s) {
 }
 bool Graphe::estOriente() const { return d_estOriente; }
 
-void Graphe::supprimerSommet(const Sommet& s) {
-    for (auto it = sommets.begin(); it != sommets.end(); ++it) { // Utilisation d'itérateur pour utiliser .erase()
-        if (*it == s) { // Surcharge de l'opérateur d'égalité entre les sommets 
-            sommets.erase(it);
-            break;
-        }
+void Graphe::supprimerSommet(const Sommet& s) { //modifier pour reendixer tous les sommets 
+    int idSupprime = s.retournerId();
+
+    // Supprimer le sommet
+    for (auto it = sommets.begin(); it != sommets.end(); ++it) {
+        if (*it == s) { sommets.erase(it); break; }
     }
 
-    // Supprimer aussi les arcs associés au sommet 
-    for (auto it = arcs.begin(); it != arcs.end(); ) { // Pas de troisième paramètre car erase() incrémente tout seul
-        if (it->retournerSommetDepart() == s || it->retournerSommetArrivee() == s) {
-            it = arcs.erase(it); // erase(it) renvoie déjà le prochain itérateur
-        } else {
+    // Supprimer les arcs associés
+    for (auto it = arcs.begin(); it != arcs.end(); ) {
+        if (it->retournerSommetDepart() == s || it->retournerSommetArrivee() == s)
+            it = arcs.erase(it);
+        else
             ++it;
+    }
+
+    // Réindexer les sommets restants
+    for (Sommet& som : sommets) {
+        if (som.retournerId() > idSupprime)
+            som.attribuerId(som.retournerId() - 1);
+    }
+
+    // Réindexer les arcs restants
+    for (Arc& a : arcs) {
+        if (a.retournerSommetDepart().retournerId() > idSupprime) {
+            Sommet dep = a.retournerSommetDepart();
+            dep.attribuerId(dep.retournerId() - 1);
+            a.attribuerSommetDepart(dep);
+        }
+        if (a.retournerSommetArrivee().retournerId() > idSupprime) {
+            Sommet arr = a.retournerSommetArrivee();
+            arr.attribuerId(arr.retournerId() - 1);
+            a.attribuerSommetArrivee(arr);
         }
     }
 }

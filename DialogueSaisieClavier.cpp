@@ -149,6 +149,8 @@ void DialogueSaisieClavier::surValidation()
 
     std::vector<Arc> arcs;
     if (!validerArcs(sommets, arcs)) return;
+    bool oriente = m_checkOriente->isChecked();// ajouter ca pour checkbox marche
+    m_graphe = Graphe(oriente);
 
     for (const Sommet& s : sommets)
         m_graphe.ajouterSommet(s);

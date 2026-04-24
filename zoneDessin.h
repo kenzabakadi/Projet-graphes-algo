@@ -50,6 +50,9 @@ public:
     void modifierPoidsVisuel(int index, int nouveauPoids);
     void effacerSommetParId(int id);
     int nbArcs() const;
+    void setSommetsEnSurbrillance(const std::vector<int>& ids);
+    void setArcsColories(const std::vector<std::pair<int, int>>& arcs);
+    void reinitialiserCouleurs();
 
 signals:
     void sommetAjouteSignal(int id, QString nom,QPoint pos);
@@ -107,6 +110,8 @@ private:
     // Geometrie
     QPoint pointSurBord(QPoint centre, QPoint vers) const;
     static double distancePointSegment(QPoint pt, QPoint a, QPoint b);
+    std::vector<int> m_sommetsEnSurbrillance;
+    std::vector<std::pair<int, int>> m_arcsColories;
 };
 
 #endif // ZONEDESSIN_H
