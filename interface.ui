@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>FenetreGraphe</class>
+ <widget class="QMainWindow" name="FenetreGraphe">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1054</width>
+    <height>595</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Éditeur de Graphes</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <widget class="QFrame" name="frameControles">
+      <property name="maximumSize">
+       <size>
+        <width>250</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::Shape::StyledPanel</enum>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="Line" name="ligneSeparation">
+         <property name="orientation">
+          <enum>Qt::Orientation::Horizontal</enum>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="titreArcs">
+         <property name="font">
+          <font>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>--- GESTION DES ARCS ---</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QComboBox" name="comboSommetSource">
+         <property name="placeholderText">
+          <string>Sommet d'origine...</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QComboBox" name="comboSommetDestination">
+         <property name="placeholderText">
+          <string>Sommet de destination...</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="inputPoidsArc">
+         <property name="placeholderText">
+          <string>Poids ou Valeur (optionnel)</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btnAjouterArc">
+         <property name="text">
+          <string>Ajouter Arc</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btnModifierArc">
+         <property name="text">
+          <string>Modifier</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btnSupprimerArc">
+         <property name="text">
+          <string>Supprimer</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QComboBox" name="comboAlgorithme">
+         <item>
+          <property name="text">
+           <string>Distance</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Tarjan</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Rang</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Prufer</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Ordonancement</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Kruskal</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Dijkstra</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Dantzig</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btnLancerAlgorithme">
+         <property name="text">
+          <string>Lancer Algorithme</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_2">
+         <property name="text">
+          <string>Arreter l'algorithme</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btnSaisieClavier">
+         <property name="text">
+          <string>Saisie clavier</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btnChargerFichier">
+         <property name="text">
+          <string>Charger depuis fichier</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btnSauvgarderFichier">
+         <property name="text">
+          <string>Sauvegarder fichier</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btnSaisieSouris">
+         <property name="text">
+          <string>SaisieSouris</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="espaceVertical">
+         <property name="orientation">
+          <enum>Qt::Orientation::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QTabWidget" name="ongletsAffichage">
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="ongletGraphique">
+       <attribute name="title">
+        <string>Vue Graphique Visuelle</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_2">
+        <item>
+         <widget class="QGraphicsView" name="zoneDessinGraphe"/>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="ongletListes">
+       <attribute name="title">
+        <string>Données Brutes (Listes)</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_3">
+        <item>
+         <widget class="QLabel" name="labelListeSommets">
+          <property name="text">
+           <string>Liste des sommets existants :</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QListWidget" name="textSommets"/>
+        </item>
+        <item>
+         <widget class="QLabel" name="labelListeArcs">
+          <property name="text">
+           <string>Liste des arcs existants :</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QListWidget" name="textArcs"/>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
